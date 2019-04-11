@@ -3,6 +3,8 @@ const mongoose = require('./config/mongoose.js')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
 
+const items = require('./routes/api/items')
+
 const port = process.env.PORT || 5000
 
 // Connect to the database.
@@ -27,6 +29,9 @@ app.use(helmet.contentSecurityPolicy({
     scriptSrc: ["'self'"]
   }
 }))
+
+// Use routes
+app.use('/api/items', items)
 
 // Starts server
 app.listen(port, () => {

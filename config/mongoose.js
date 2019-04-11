@@ -9,7 +9,7 @@
 
 const mongoose = require('mongoose')
 
-const temporaryKeyLocation = 'mongodb+srv://user:sKrief353KeQ@ex2db-7mupt.mongodb.net/test?retryWrites=true'
+const temporaryKeyLocation = 'mongodb+srv://user:sKrief353KeQ@ex2db-7mupt.mongodb.net/MyProject?retryWrites=true'
 
 /**
  * Establishes a connection to a database.
