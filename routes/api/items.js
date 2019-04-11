@@ -1,21 +1,19 @@
-const express = require('express')
-const router = express.Router()
+const router = require('express').Router()
 
 // Item Model
 const Item = require('../../models/Item')
 
-// GET api/items
 // Get All Items
-// Public
+// Public atm
 router.get('/', (req, res) => {
   Item.find()
     .sort({ date: -1 })
     .then(items => res.json(items))
 })
 
-// POST api/items
+// POST
 // Create an item
-// Public
+// Public atm
 router.post('/', (req, res) => {
   const newItem = new Item({
     name: req.body.name
@@ -24,7 +22,7 @@ router.post('/', (req, res) => {
   newItem.save().then(item => res.json(item))
 })
 
-// POST api/items
+// POST
 // delete an item
 // Public
 router.delete('/:id', (req, res) => {

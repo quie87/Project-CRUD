@@ -23,9 +23,8 @@ app.use(helmet())
 
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    // defaultSrc: ["'self'"],
-    // fontSrc: ["'self'"],
-    // styleSrc: ["'self'"],
+    defaultSrc: ["'self'"],
+    fontSrc: ["'self'"],
     scriptSrc: ["'self'"]
   }
 }))
