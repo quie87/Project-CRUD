@@ -43,6 +43,7 @@ class App extends Component {
       <div className='App'>
         <div className="container">
           <Header />
+          
           <AddTodo addTodo={this.addTodo}/>
           <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} deleteTodo={this.deleteTodo} />
         </div>

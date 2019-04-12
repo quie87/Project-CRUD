@@ -11,6 +11,7 @@ const ItemSchema = new Schema({
     type: Date,
     default: Date.now
   }
+
 })
 
 // create a mongoose model to export
