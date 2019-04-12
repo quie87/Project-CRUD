@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 // Public atm
 router.post('/', (req, res) => {
   const newItem = new Item({
-    name: req.body.name
+    title: req.body.name
   })
 
   newItem.save().then(item => res.json(item))

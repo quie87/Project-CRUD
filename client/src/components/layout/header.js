@@ -1,23 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Header extends Component {
-  render () {
-    return (
-      <div className='nav-bar'>
-        <ol>
-          <li>
-						Home
-          </li>
-          <li>
-						Register
-          </li>
-          <li>
-						login
-          </li>
-        </ol>
-      </div>
-    )
-  }
+function Header () {
+  return (
+    <header style={headerStyle}>
+      <h1>TodoList</h1>
+    </header>
+  )
+}
+
+const headerStyle = {
+  backgroundColor: '#333',
+  color: '#fff',
+  textAlign: 'center',
+  padding: '10px'
 }
 
 export default Header
