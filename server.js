@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('./config/mongoose.js')
 const helmet = require('helmet')
+require('dotenv').config()
 
 const port = process.env.PORT || 5000
 

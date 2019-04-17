@@ -9,8 +9,6 @@
 
 const mongoose = require('mongoose')
 
-const temporaryKeyLocation = 'mongodb+srv://user:sKrief353KeQ@ex2db-7mupt.mongodb.net/MyProject?retryWrites=true'
-
 /**
  * Establishes a connection to a database.
  *
@@ -19,7 +17,7 @@ const temporaryKeyLocation = 'mongodb+srv://user:sKrief353KeQ@ex2db-7mupt.mongod
 module.exports.run = async () => {
   mongoose.Promise = global.Promise
 
-  mongoose.connection.on('connected', () => console.log('Mongoose connection is open. Dont forget to change location of key'))
+  mongoose.connection.on('connected', () => console.log('Mongoose connection is open.'))
   mongoose.connection.on('error', err => console.error(`Mongoose connection error has occured: ${err}`))
   mongoose.connection.on('disconnected', () => console.log('Mongoose connection is disconnected.'))
 
@@ -32,7 +30,7 @@ module.exports.run = async () => {
   })
 
   // Connect to the server.
-  return mongoose.connect(temporaryKeyLocation, {
+  return mongoose.connect(process.env.DB_KEY, {
     useNewUrlParser: true,
     useCreateIndex: true
   })
