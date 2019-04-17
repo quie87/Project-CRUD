@@ -1,13 +1,13 @@
 import React from 'react'
+import SignedIn from './SignedInLinks'
+import SignedOut from './SignedOutLinks'
 
 function Header () {
   return (
     <header style={headerStyle}>
       <h1>TodoList</h1>
-      <ol className='menu'>
-        <li><a href='/'>Sign up</a></li>
-        <li><a href='/'>Logga in</a></li>
-      </ol>
+      <SignedIn />
+      <SignedOut />
     </header>
   )
 }
