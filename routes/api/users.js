@@ -1,11 +1,11 @@
 const router = require('express').Router()
 const bcrypt = require('bcryptjs')
-const config = require('config')
 const jwt = require('jsonwebtoken')
+
 // User Model
 const User = require('../../models/User')
 
-// @rout POST api/users
+// @route POST api/users
 // @desc Register new user
 // Public atm
 router.post('/', (req, res) => {
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
   // Check for existing user
   User.findOne({ email })
     .then(user => {
-      if (user) return res.status(400).json({ msg: 'User already exists' })
+      if (user) return res.status(400).json({ msg: 'Bad request' })
 
       const newUser = new User({
         name,
