@@ -1,11 +1,14 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import SignedIn from './SignedInLinks'
 import SignedOut from './SignedOutLinks'
 
 function Header () {
   return (
     <header style={headerStyle}>
-      <h1>TodoList</h1>
+      <h1>
+        <li><NavLink to='/'>TodoList</NavLink></li>
+      </h1>
       <SignedIn />
       <SignedOut />
     </header>
