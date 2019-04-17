@@ -32,5 +32,8 @@ module.exports.run = async () => {
   })
 
   // Connect to the server.
-  return mongoose.connect(temporaryKeyLocation)
+  return mongoose.connect(temporaryKeyLocation, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  })
 }

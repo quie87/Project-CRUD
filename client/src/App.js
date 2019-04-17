@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from './components/layout/Header'
 import TodoProject from './components/Todos/TodoProject'
+// import Navbar from './components/layout/Navbar'
 
 import './App.css'
 

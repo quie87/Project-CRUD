@@ -1,9 +1,6 @@
 const express = require('express')
 const mongoose = require('./config/mongoose.js')
-const bodyParser = require('body-parser')
 const helmet = require('helmet')
-
-const items = require('./routes/api/items')
 
 const port = process.env.PORT || 5000
 
@@ -16,7 +13,7 @@ mongoose.run().catch(error => {
 const app = express()
 
 // Bodyparser middleware
-app.use(bodyParser.json())
+app.use(express.json())
 
 // Put the helmet on
 app.use(helmet())
@@ -30,7 +27,8 @@ app.use(helmet.contentSecurityPolicy({
 }))
 
 // Use routes
-app.use('/api/items', items)
+app.use('/api/items', require('./routes/api/items'))
+app.use('/api/users', require('./routes/api/users'))
 
 // Starts server
 app.listen(port, () => {
