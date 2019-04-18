@@ -2,10 +2,10 @@ import {
   USER_LOADED,
   USER_LOADING,
   AUTH_ERROR,
-  LOGIN_SUCCES,
+  LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
-  REGISTER_SUCESS,
+  REGISTER_SUCCESS,
   REGISTER_FAIL
 } from '../actions/types'
 
@@ -30,8 +30,9 @@ export default function (state = initialState, action) {
         isLoading: false,
         user: action.payload
       }
-    case LOGIN_SUCCES:
-    case REGISTER_SUCESS:
+    case LOGIN_SUCCESS:
+    case REGISTER_SUCCESS:
+      window.localStorage.setItem('token', action.payload.token)
       return {
         ...state,
         ...action.payload,

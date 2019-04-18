@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import SignedIn from './SignedInLinks'
-import SignedOut from './SignedOutLinks'
+import SignedInLinks from './SignedInLinks'
+import SignedOutLinks from './SignedOutLinks'
 
 function Header () {
   return (
@@ -9,8 +9,8 @@ function Header () {
       <h1>
         <li><NavLink to='/'>TodoList</NavLink></li>
       </h1>
-      <SignedIn />
-      <SignedOut />
+      <SignedInLinks />
+      <SignedOutLinks />
     </header>
   )
 }

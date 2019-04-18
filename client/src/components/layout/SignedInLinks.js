@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { logout } from '../../actions/authActions'
 
-const SignedInLinks = () => {
-  return (
-    <ul className='menu'>
-      <li><NavLink to='/'>Log out</NavLink></li>
-    </ul>
-  )
+class Logout extends Component {
+  render () {
+    return (
+      <ul className='menu'>
+        <li><NavLink onClick={this.props.logout} to='/'>Log out</NavLink></li>
+      </ul>
+    )
+  }
 }
 
-export default SignedInLinks
+export default connect(
+  null,
+  { logout }
+)(Logout)
