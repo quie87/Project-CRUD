@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
+import { loadUser } from './actions/authActions'
 
 import Header from './components/layout/Header'
 import Dashboard from './components/dashboard/Dashboard'
@@ -14,6 +15,10 @@ import SignUp from './components/auth/SignUp'
 import './App.css'
 
 class App extends Component {
+  componentDidMount () {
+    store.dispatch(loadUser())
+  }
+
   render () {
     return (
       <Provider store={store}>
