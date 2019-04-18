@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getTodos, addTodo, deleteTodo } from '../../actions/todoActions'
+
 import Todos from './Todos'
 import AddTodo from './AddTodo'
-import axios from 'axios'
-
 
 class TodoProject extends Component {
-  state = {
-    todos: []
+  componentDidMount () {
+    this.props.getTodos()
   }
 
-  componentDidMount () {
-    axios.get('api/items')
-    .then(res => this.setState({ todos: res.data}))
+  onAddTodo = (title) => {
+    this.props.addTodo({
+      title,
+      completed: false
+    })
+  }
+
+  onDeleteClick = (id) => {
+    this.props.deleteTodo(id)
   }
 
   toggleComplete = (id) => {
@@ -23,29 +30,22 @@ class TodoProject extends Component {
     }) })
   }
 
-  deleteTodo = (id) => {
-    axios.delete(`api/items/${id}`)
-    .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo._id !== id)] }))
-  }
-
-  addTodo = (title) => {
-    axios.post('api/items', {
-      title: title,
-      completed: false
-    })
-    .then(res => this.setState({ todos: [...this.state.todos, res.data] }) )
-  }
-
   render () {
+    const { todos } = this.props.todo
     return (
-        <div className="container">
-          <div className="miniContainer">
-            <AddTodo addTodo={this.addTodo}/>
-            <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} deleteTodo={this.deleteTodo} />
-          </div>
+      <div className='container'>
+        <div className='miniContainer'>
+          <AddTodo onAddTodo={this.onAddTodo} />
+          <Todos todos={todos} toggleComplete={this.toggleComplete} onDeleteClick={this.onDeleteClick} />
         </div>
+      </div>
     )
   }
 }
 
-export default TodoProject
+const mapStateToProps = (state) => ({
+  todo: state.todo
+})
+
+export default connect(mapStateToProps, { getTodos, addTodo, deleteTodo })(TodoProject)
+// export default TodoProject
