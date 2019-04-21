@@ -1,4 +1,6 @@
 import { GET_TODOS, ADD_TODO, DELETE_TODO } from './types'
+import { tokenConfig } from './authActions'
+import { returnErrors } from './errorActions'
 import axios from 'axios'
 
 export const getTodos = () => dispatch => {
@@ -7,37 +9,33 @@ export const getTodos = () => dispatch => {
       type: GET_TODOS,
       payload: res.data
     }))
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    )
 }
 
-export const addTodo = todo => {
-  return {
-    type: ADD_TODO,
-    payload: todo
-  }
+export const addTodo = (todo) => (dispatch, getState) => {
+  axios
+    .post('api/items', todo, tokenConfig(getState))
+    .then(res =>
+      dispatch({
+        type: ADD_TODO,
+        payload: res.data
+      }))
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    )
 }
-// export const addTodo = (todo) => dispatch => {
-//   axios.post('api/items', {
-//     title: todo.title
-//   })
-//     .then(res => dispatch({
-//       type: ADD_TODO,
-//       payload: res.data
-//     }))
-// }
 
-export const deleteTodo = (id) => {
-  // axios.delete(`api/items/${id}`, {
-  //   headers: {
-  //     auth: 'token'
-  //   }
-  // })
-  //   .then(res => dispatch({
-  //     type: DELETE_TODO,
-  //     payload: res.data
-  //   }))
-
-  return {
-    type: DELETE_TODO,
-    payload: id
-  }
+export const deleteTodo = id => (dispatch, getState) => {
+  axios
+    .delete(`api/items/${id}`, tokenConfig(getState))
+    .then(res =>
+      dispatch({
+        type: DELETE_TODO,
+        payload: id
+      }))
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    )
 }

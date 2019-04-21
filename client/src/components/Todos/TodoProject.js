@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getTodos, addTodo, deleteTodo } from '../../actions/todoActions'
+import { getTodos, deleteTodo } from '../../actions/todoActions'
 
 import Todos from './Todos'
 import AddTodo from './AddTodo'
@@ -10,14 +10,7 @@ class TodoProject extends Component {
     this.props.getTodos()
   }
 
-  onAddTodo = (title) => {
-    this.props.addTodo({
-      title,
-      completed: false
-    })
-  }
-
-  onDeleteClick = (id) => {
+  onDeleteClick = id => {
     this.props.deleteTodo(id)
   }
 
@@ -32,10 +25,11 @@ class TodoProject extends Component {
 
   render () {
     const { todos } = this.props.todo
+
     return (
       <div className='container'>
         <div className='miniContainer'>
-          <AddTodo onAddTodo={this.onAddTodo} />
+          <AddTodo />
           <Todos todos={todos} toggleComplete={this.toggleComplete} onDeleteClick={this.onDeleteClick} />
         </div>
       </div>
@@ -47,5 +41,5 @@ const mapStateToProps = (state) => ({
   todo: state.todo
 })
 
-export default connect(mapStateToProps, { getTodos, addTodo, deleteTodo })(TodoProject)
+export default connect(mapStateToProps, { getTodos, deleteTodo })(TodoProject)
 // export default TodoProject
