@@ -9,6 +9,11 @@ class SignIn extends Component {
 		password: ''
 	}
 
+	static propTypes = {
+		isAuthenticated: PropTypes.bool,
+		login: PropTypes.func.isRequired
+	}
+
 	componentDidUpdate(prevProps) {
 		const { error } = this.props
 		if (error !== prevProps.error) {

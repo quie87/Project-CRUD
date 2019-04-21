@@ -28,9 +28,9 @@ class App extends Component {
               <Header />
               <Switch>
                 <Route exact path='/' component={Dashboard} />
-                <Route path='/todoproject' component={TodoProject} />
                 <Route path='/signin' component={SignIn} />
                 <Route path='/signUp' component={SignUp} />
+                <Route path='/todoproject' component={TodoProject} />
               </Switch>
               <Footer />
             </div>

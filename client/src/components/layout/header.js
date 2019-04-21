@@ -9,9 +9,9 @@ class Header extends Component {
     const { isAuthenticated } = this.props.auth
     return (
       <header style={headerStyle}>
-        <h1>
+        <h3>
           <li><NavLink to='/'>TodoList</NavLink></li>
-        </h1>
+        </h3>
         { isAuthenticated ? <SignedInLinks /> : <SignedOutLinks />}
       </header>
     )
