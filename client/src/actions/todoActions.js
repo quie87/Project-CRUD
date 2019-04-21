@@ -26,13 +26,18 @@ export const addTodo = todo => {
 // }
 
 export const deleteTodo = (id) => {
-  return {
-    type: DELETE_TODO,
-    payload: id
-  }
-  // axios.delete(`api/items/${id}`)
+  // axios.delete(`api/items/${id}`, {
+  //   headers: {
+  //     auth: 'token'
+  //   }
+  // })
   //   .then(res => dispatch({
   //     type: DELETE_TODO,
   //     payload: res.data
   //   }))
+
+  return {
+    type: DELETE_TODO,
+    payload: id
+  }
 }

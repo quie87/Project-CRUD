@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 
-function Header () {
-  return (
-    <header style={headerStyle}>
-      <h1>
-        <li><NavLink to='/'>TodoList</NavLink></li>
-      </h1>
-      <SignedInLinks />
-      <SignedOutLinks />
-    </header>
-  )
+class Header extends Component {
+  render () {
+    const { isAuthenticated } = this.props.auth
+    return (
+      <header style={headerStyle}>
+        <h1>
+          <li><NavLink to='/'>TodoList</NavLink></li>
+        </h1>
+        { isAuthenticated ? <SignedInLinks /> : <SignedOutLinks />}
+      </header>
+    )
+  }
 }
 
 const headerStyle = {
@@ -22,4 +25,11 @@ const headerStyle = {
   padding: '10px'
 }
 
-export default Header
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(
+  mapStateToProps,
+  null
+)(Header)
