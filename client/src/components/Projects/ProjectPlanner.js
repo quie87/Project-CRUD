@@ -20,9 +20,9 @@ class ProjectPlanner extends Component {
     return (
       <div className='container'>
         <div className='miniContainer'>
-        <h1>Hej</h1>
-          {/* <AddProject />
-          <Projects /> */}
+        <h1>Projects</h1>
+          <AddProject />
+          <Projects projects={projects} onDeleteClick={this.onDeleteClick} user={this.props.auth.user} />
         </div>
       </div>
     )
@@ -30,7 +30,8 @@ class ProjectPlanner extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  project: state.project
+  project: state.project,
+  auth: state.auth
 })
 
 export default connect(mapStateToProps, { getProjects, deleteProject })(ProjectPlanner)

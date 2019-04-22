@@ -5,7 +5,7 @@ const auth = require('../../middleware/auth')
 const Project = require('../../models/Project')
 
 // Get All projects
-// Public atm
+// Private
 router.get('/', (req, res) => {
   Project.find()
     .sort({ date: -1 })
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.post('/', auth, (req, res) => {
   const newProject = new Project({
     name: req.body.name,
-    userId: req.body.user
+    userId: req.body.userId
   })
 
   newProject.save().then(project => res.json(project))
