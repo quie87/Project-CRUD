@@ -33,6 +33,8 @@
     "standard": "^12.0.1"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
     "nodemon": "^1.18.11"
   },
   "nodemonConfig": {

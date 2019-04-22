@@ -12,7 +12,7 @@ import {
   REGISTER_FAIL
 } from './types'
 
-// Check token & and load user
+// Check token & load user
 export const loadUser = () => (dispatch, getState) => {
   // user loading
   dispatch({ type: USER_LOADING })

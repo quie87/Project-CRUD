@@ -10,7 +10,7 @@ import {
 } from '../actions/types'
 
 const initialState = {
-  token: window.localStorage.getItem('token'), // blir det fel med token senare så testa ta bort window
+  token: window.localStorage.getItem('token'),
   isAuthenticated: null,
   isLoading: false,
   user: null
@@ -43,7 +43,7 @@ export default function (state = initialState, action) {
     case LOGIN_FAIL:
     case LOGOUT_SUCCESS:
     case REGISTER_FAIL:
-      window.localStorage.removeItem('token') // Ta eventuellt bort window
+      window.localStorage.removeItem('token')
       return {
         ...state,
         token: null,
