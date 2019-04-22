@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import Index from './LandingPage'
+import ProjectPlanner from '../Projects/ProjectPlanner'
 
 class Dashboard extends Component {
   render () {
+    const { isAuthenticated } = this.props.auth
     return (
-      <div className='dashboard container'>
-        <h1>
-					Welcome to the project manager "What to do?"
-        </h1>
+      <div className='container'>
+        { isAuthenticated ? <ProjectPlanner /> : <Index />}
       </div>
     )
   }
 }
 
-export default Dashboard
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, null)(Dashboard)
