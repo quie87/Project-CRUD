@@ -6,6 +6,7 @@ import { loadUser } from './actions/authActions'
 
 import Header from './components/layout/Header'
 import Dashboard from './components/dashboard/Dashboard'
+import ProjectPlanner from './components/Projects/ProjectPlanner'
 import TodoProject from './components/Todos/TodoProject'
 import Footer from './components/layout/Footer'
 // import Main from './components/layout/Main'
@@ -34,6 +35,7 @@ class App extends Component {
               <Route path='/signin' component={SignIn} />
               <Route path='/signUp' component={SignUp} />
               <Route path='/todoproject' component={TodoProject} />
+              <Route path='/projectplanner' component={ProjectPlanner} />
             </Switch>
           </div>
         </BrowserRouter>
