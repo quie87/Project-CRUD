@@ -2,8 +2,12 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 // Create Schema
-const ItemSchema = new Schema({
-  title: {
+const ProjectSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  userId: {
     type: String,
     required: true
   },
@@ -15,6 +19,6 @@ const ItemSchema = new Schema({
 })
 
 // create a mongoose model to export
-const item = mongoose.model('item', ItemSchema)
+const project = mongoose.model('project', ProjectSchema)
 
-module.exports = item
+module.exports = project

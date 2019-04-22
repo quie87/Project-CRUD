@@ -29,6 +29,8 @@ class TodoProject extends Component {
     return (
       <div className='container'>
         <div className='miniContainer'>
+          {/* <Addproject /> */}
+          {/* <Projects /> */}
           <AddTodo />
           <Todos todos={todos} toggleComplete={this.toggleComplete} onDeleteClick={this.onDeleteClick} />
         </div>

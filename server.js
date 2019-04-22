@@ -28,7 +28,8 @@ app.use(helmet.contentSecurityPolicy({
 }))
 
 // Use routes
-app.use('/api/items', require('./routes/api/items'))
+app.use('/api/projects', require('./routes/api/projects'))
+app.use('/api/todos', require('./routes/api/todos'))
 app.use('/api/users', require('./routes/api/users'))
 app.use('/api/auth', require('./routes/api/auth'))
 

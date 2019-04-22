@@ -1,34 +1,34 @@
 const router = require('express').Router()
 const auth = require('../../middleware/auth')
 
-// Item Model
-const Item = require('../../models/Item')
+// Todo Model
+const Todo = require('../../models/Todo')
 
-// Get All Items
+// Get All Todos
 // Public atm
 router.get('/', (req, res) => {
-  Item.find()
+  Todo.find()
     .sort({ date: -1 })
-    .then(items => res.json(items))
+    .then(todos => res.json(todos))
 })
 
 // POST
-// Create an item
-// Private
+// Create an Todo
+// @Private
 router.post('/', auth, (req, res) => {
-  const newItem = new Item({
+  const newTodo = new Todo({
     title: req.body.title
   })
 
-  newItem.save().then(item => res.json(item))
+  newTodo.save().then(todo => res.json(todo))
 })
 
 // POST
-// delete an item
-// Private
+// delete an Todo
+// @Private
 router.delete('/:id', auth, (req, res) => {
-  Item.findById(req.params.id)
-    .then(item => item.remove().then(() => res.json({ succes: true })))
+  Todo.findById(req.params.id)
+    .then(todo => todo.remove().then(() => res.json({ succes: true })))
     .catch(() => res.status(404).json({ success: false }))
 })
 

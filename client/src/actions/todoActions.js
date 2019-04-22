@@ -4,7 +4,7 @@ import { returnErrors } from './errorActions'
 import axios from 'axios'
 
 export const getTodos = () => dispatch => {
-  axios.get('api/items')
+  axios.get('api/todos')
     .then(res => dispatch({
       type: GET_TODOS,
       payload: res.data
@@ -16,7 +16,7 @@ export const getTodos = () => dispatch => {
 
 export const addTodo = (todo) => (dispatch, getState) => {
   axios
-    .post('api/items', todo, tokenConfig(getState))
+    .post('api/todos', todo, tokenConfig(getState))
     .then(res =>
       dispatch({
         type: ADD_TODO,
@@ -29,7 +29,7 @@ export const addTodo = (todo) => (dispatch, getState) => {
 
 export const deleteTodo = id => (dispatch, getState) => {
   axios
-    .delete(`api/items/${id}`, tokenConfig(getState))
+    .delete(`api/todos/${id}`, tokenConfig(getState))
     .then(res =>
       dispatch({
         type: DELETE_TODO,
