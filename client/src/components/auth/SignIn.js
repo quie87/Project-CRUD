@@ -60,7 +60,7 @@ class SignIn extends Component {
 						<label>Password</label>
 						<input onChange={this.handleChange} type='password' name='password' id='password' placeholder='Password...' required />
 					</div>
-					<button>Log in</button>
+					<button>Log in</button>					
 					</form>
 			</div>
     )

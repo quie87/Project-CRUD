@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { loadUser } from './actions/authActions'
 
 import Header from './components/layout/Header'
-import Footer from './components/layout/Footer'
+import Footer from './components/layout/MyFooter'
 import Dashboard from './components/dashboard/Dashboard'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
