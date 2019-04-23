@@ -3,8 +3,8 @@ import { tokenConfig } from './authActions'
 import { returnErrors } from './errorActions'
 import axios from 'axios'
 
-export const getProjects = () => dispatch => {
-  axios.get('api/projects')
+export const getProjects = (id) => dispatch => {
+  axios.get('api/projects', id)
     .then(res => dispatch({
       type: GET_PROJECTS,
       payload: res.data

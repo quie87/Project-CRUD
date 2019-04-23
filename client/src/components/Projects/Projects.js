@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 class Projects extends Component {
   render () {
     return this.props.projects.map((project) => (
-      <ProjectItem key={project._id} project={project} onDeleteClick={this.props.onDeleteClick} />
+      <ProjectItem key={project._id} project={project} onDeleteClick={this.props.onDeleteClick} getTodos={this.props.getTodos} />
     ))
   }
 }

@@ -7,6 +7,7 @@ const Project = require('../../models/Project')
 // Get All projects
 // Private
 router.get('/', (req, res) => {
+  // Project.find({ userId: req.body.id })
   Project.find()
     .sort({ date: -1 })
     .then(projects => res.json(projects))

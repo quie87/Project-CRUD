@@ -16,7 +16,8 @@ export class ProjectItem extends Component {
     return (
       <div style={this.getStyle()}>
 				<p>
-					{ name }
+					{/* { name } */}
+					<button onClick={this.props.getTodos.bind(this, _id)}> { name } </button>
 					<button onClick={this.props.onDeleteClick.bind(this, _id)} style={btnStyle}>x</button>
 				</p>
       </div>
