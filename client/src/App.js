@@ -7,7 +7,6 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Dashboard from './components/dashboard/Dashboard'
 import ProjectPlanner from './components/Projects/ProjectPlanner'
-import TodoProject from './components/Todos/TodoProject'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -30,7 +29,6 @@ class App extends Component {
               <Route exact path='/' component={Dashboard} />
               <Route path='/signin' component={SignIn} />
               <Route path='/signUp' component={SignUp} />
-              <Route path='/projectplanner' component={ProjectPlanner} />
             </Switch>
             <Footer />
           </div>

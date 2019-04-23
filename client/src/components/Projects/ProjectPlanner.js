@@ -21,8 +21,10 @@ class ProjectPlanner extends Component {
       <div className='container'>
         <div className='miniContainer'>
         <h1>Projects</h1>
+        <div>
           <AddProject />
           <Projects projects={projects} onDeleteClick={this.onDeleteClick} user={this.props.auth.user} />
+        </div>
         </div>
       </div>
     )

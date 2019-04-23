@@ -15,7 +15,7 @@ class SignIn extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		const { error } = this.props
+		const { error, isAuthenticated } = this.props
 		if (error !== prevProps.error) {
 			//Check for register error
 			if (error.id === 'LOGIN_FAIL') {
@@ -23,6 +23,9 @@ class SignIn extends Component {
 			} else {
 				this.setState({ msg: null })
 			}
+		}
+		if(isAuthenticated) {
+			this.props.history.push('/')
 		}
 	}
 
