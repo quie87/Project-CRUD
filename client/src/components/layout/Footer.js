@@ -11,8 +11,7 @@ function Footer () {
 const headerStyle = {
   backgroundColor: '#333',
   color: '#fff',
-  textAlign: 'center',
-  padding: '10px'
+  textAlign: 'center'
 }
 
 export default Footer

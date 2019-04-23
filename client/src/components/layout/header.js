@@ -10,7 +10,7 @@ class Header extends Component {
     return (
       <header style={headerStyle}>
         <h3>
-          <li><NavLink to='/'>TodoList</NavLink></li>
+          <li><NavLink to='/'>What to do?</NavLink></li>
         </h3>
         { isAuthenticated ? <SignedInLinks /> : <SignedOutLinks />}
       </header>
@@ -21,7 +21,6 @@ class Header extends Component {
 const headerStyle = {
   backgroundColor: '#333',
   color: '#fff',
-  textAlign: 'center',
   padding: '10px'
 }
 

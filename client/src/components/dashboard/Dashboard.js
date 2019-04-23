@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Index from './LandingPage'
+import LandingPage from './LandingPage'
 import ProjectPlanner from '../Projects/ProjectPlanner'
 
 class Dashboard extends Component {
@@ -9,7 +9,7 @@ class Dashboard extends Component {
     const { isAuthenticated } = this.props.auth
     return (
       <div className='container'>
-        { isAuthenticated ? <ProjectPlanner /> : <Index />}
+        { isAuthenticated ? <ProjectPlanner /> : <LandingPage />}
       </div>
     )
   }

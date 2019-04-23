@@ -6,16 +6,12 @@ import { loadUser } from './actions/authActions'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Dashboard from './components/dashboard/Dashboard'
-import ProjectPlanner from './components/Projects/ProjectPlanner'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 import './App.css'
 
 class App extends Component {
   componentDidMount () {
-    // store.dispatch(loadUser())
     this.props.dispatch(loadUser())
   }
 
