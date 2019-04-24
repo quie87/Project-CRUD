@@ -6,9 +6,7 @@ export class TodoItem extends Component {
 		return {
 			background: '#f4f4f4',
 			padding: '10px',
-			borderBottom: '1px #ccc dotted',
-			textDecoration: this.props.todo.completed ?
-			'line-through' : 'none'
+			borderBottom: '1px #ccc dotted'
 		}
 	}
 
@@ -21,7 +19,7 @@ export class TodoItem extends Component {
 				<p>
 					<input type="checkbox" onChange={this.props.toggleComplete.bind(this, _id)} />
 					{ title }
-					<button onClick={this.props.onDeleteClick.bind(this, _id)}>x</button>
+					<button onClick={this.props.onDeleteClick.bind(this, _id)} style={btnStyle}>x</button>
 				</p>
       </div>
     )

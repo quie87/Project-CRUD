@@ -7,9 +7,10 @@ import ProjectPlanner from '../Projects/ProjectPlanner'
 class Dashboard extends Component {
   render () {
     const { isAuthenticated } = this.props.auth
+    const auth = isAuthenticated ? <ProjectPlanner /> : <LandingPage />
     return (
       <div className='container'>
-        { isAuthenticated ? <ProjectPlanner /> : <LandingPage />}
+        { auth }
       </div>
     )
   }

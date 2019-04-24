@@ -5,8 +5,7 @@ import { getTodos } from '../../actions/todoActions'
 
 import Projects from './Projects'
 import AddProject from './AddProject'
-import Todos from '../Todos/Todos'
-import AddTodo from '../Todos/AddTodo'
+import TodoProject from '../Todos/TodoProject'
 
 class ProjectPlanner extends Component {
   state = {
@@ -14,7 +13,6 @@ class ProjectPlanner extends Component {
   }
 
   componentDidMount () {
-    
     const { user } = this.props.auth
     this.props.getProjects(user._id)
   }
@@ -40,13 +38,21 @@ class ProjectPlanner extends Component {
 
     return (
       <div className='container'>
-        <div className='miniContainer'>
-        <h1>Projects</h1>
-        <div>
-          <AddProject />
-          <Projects projects={projects} onDeleteClick={this.onDeleteClick} user={this.props.auth.user} getTodos={this.props.getTodos} />
-          { this.state.showTodos ? <AddTodo />  : <div>No todos</div> }
-        </div>
+        <div className='row'>
+          <div className="col s12 m4 l4">
+            <h3 className='center'>Projects</h3>
+            <div>
+              <AddProject />
+              <Projects projects={projects} onDeleteClick={this.onDeleteClick} user={this.props.auth.user} getTodos={this.props.getTodos} />
+            </div>
+          </div>
+          <div className="col s12 m8 l8">
+            <div className='todo'>
+            <h3 className='center'>Your Todos</h3>
+             <TodoProject />
+            {/* { this.state.showTodos ? <TodoProject />  : <div>No todos</div> } */}
+            </div>
+          </div>
         </div>
       </div>
     )

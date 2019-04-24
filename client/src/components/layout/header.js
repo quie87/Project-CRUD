@@ -9,7 +9,7 @@ class Header extends Component {
   render () {
     const { isAuthenticated } = this.props.auth
     return (
-      <Navbar brand={<NavLink to='/'>What to do?</NavLink>} alignLinks='right' className='Navbar'>
+      <Navbar brand={<NavLink to='/'>What to do?</NavLink>} alignLinks='right' className='Navbar #8e24aa purple darken-1' >
         { isAuthenticated ? <SignedInLinks /> : <SignedOutLinks />}
       </Navbar>
     )

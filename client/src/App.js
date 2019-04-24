@@ -4,11 +4,10 @@ import { connect } from 'react-redux'
 import { loadUser } from './actions/authActions'
 
 import Header from './components/layout/Header'
-import Footer from './components/layout/MyFooter'
+import Footer from './components/layout/Footer'
 import Dashboard from './components/dashboard/Dashboard'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
-import TodoProject from './components/Todos/TodoProject'
 import './App.css'
 
 class App extends Component {
@@ -26,7 +25,6 @@ class App extends Component {
               <Route exact path='/' component={Dashboard} />
               <Route path='/signin' component={SignIn} />
               <Route path='/signUp' component={SignUp} />
-              <Route path='/TodoProject' component={TodoProject} />
             </Switch>
             <Footer />
           </div>
