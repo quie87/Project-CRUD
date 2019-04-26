@@ -1,7 +1,11 @@
-import { GET_PROJECTS, ADD_PROJECT, DELETE_PROJECT } from '../actions/types'
+import { GET_PROJECTS, ADD_PROJECT, DELETE_PROJECT, ACTIVE_PROJECT } from '../actions/types'
 
 const initialState = {
-  projects: []
+  projects: [],
+  isActive: {
+    projectName: '',
+    active: false
+  }
 }
 
 export default function (state = initialState, action) {
@@ -20,6 +24,14 @@ export default function (state = initialState, action) {
       return {
         ...state,
         projects: state.projects.filter(project => project._id !== action.payload)
+      }
+    case ACTIVE_PROJECT:
+      return {
+        ...state,
+        isActive: {
+          projectName: action.payload,
+          active: true
+        }
       }
     default:
       return state

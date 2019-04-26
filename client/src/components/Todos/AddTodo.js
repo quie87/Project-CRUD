@@ -2,22 +2,28 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../../actions/todoActions'
 import PropTypes from 'prop-types'
+import { isActive } from '../../actions/projectActions';
 
 export class AddTodo extends Component {
 	state = {
-		title: ''
+    title: ''
   }
 
 	onSubmit = (e) => {
     e.preventDefault()
 
+    const { user } = this.props.auth
+    const { isActive } = this.props.project
+
     const newItem = {
-      title: this.state.title
+      title: this.state.title,
+      parentName: isActive.projectName,
+      userId: user._id
     }
 
-    this.props.addTodo(newItem)
+    this.setState({ title: '' })
 
-		this.setState({ title: '' })
+    this.props.addTodo(newItem)
 	}
 
 	onChange = (e) => this.setState({ title: e.target.value })
@@ -49,7 +55,9 @@ AddTodo.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  todo: state.todos
+  todo: state.todos,
+  project: state.project,
+  auth: state.auth
 })
 
-export default connect(mapStateToProps, { addTodo })(AddTodo)
+export default connect(mapStateToProps, { addTodo, isActive })(AddTodo)

@@ -19,7 +19,7 @@ export class TodoItem extends Component {
 				<p>
 					<input type="checkbox" onChange={this.props.toggleComplete.bind(this, _id)} />
 					{ title }
-					<button onClick={this.props.onDeleteClick.bind(this, _id)} style={btnStyle}>x</button>
+					<button onClick={this.props.onDeleteTodo.bind(this, _id)} style={btnStyle}>x</button>
 				</p>
       </div>
     )
@@ -39,7 +39,7 @@ const btnStyle = {
 TodoItem.propTypes = {
 	todo: PropTypes.object.isRequired,
 	toggleComplete: PropTypes.func.isRequired,
-  onDeleteClick: PropTypes.func.isRequired
+  onDeleteTodo: PropTypes.func.isRequired
 }
 
 export default TodoItem

@@ -17,8 +17,8 @@ export class ProjectItem extends Component {
       <div style={this.getStyle()}>
 				<p>
 					{/* { name } */}
-					<button onClick={this.props.getTodos.bind(this, _id)}> { name } </button>
-					<button onClick={this.props.onDeleteClick.bind(this, _id)} style={btnStyle}>x</button>
+					<button onClick={this.props.getProjectTodos.bind(this, name)}> { name } </button>
+					<button onClick={this.props.onDeleteProject.bind(this, _id)} style={btnStyle}>x</button>
 				</p>
       </div>
     )
@@ -37,7 +37,7 @@ const btnStyle = {
 
 ProjectItem.propTypes = {
 	project: PropTypes.object.isRequired,
-  onDeleteClick: PropTypes.func.isRequired
+  onDeleteProject: PropTypes.func.isRequired
 }
 
 export default ProjectItem

@@ -1,4 +1,4 @@
-import { GET_PROJECTS, ADD_PROJECT, DELETE_PROJECT } from './types'
+import { GET_PROJECTS, ADD_PROJECT, DELETE_PROJECT, ACTIVE_PROJECT } from './types'
 import { tokenConfig } from './authActions'
 import { returnErrors } from './errorActions'
 import axios from 'axios'
@@ -38,4 +38,10 @@ export const deleteProject = id => (dispatch, getState) => {
     .catch(err =>
       dispatch(returnErrors(err.response.data, err.response.status))
     )
+}
+export const isActive = name => dispatch => {
+  dispatch({
+    type: ACTIVE_PROJECT,
+    payload: name
+  })
 }

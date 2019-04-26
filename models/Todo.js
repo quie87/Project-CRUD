@@ -7,11 +7,18 @@ const TodoSchema = new Schema({
     type: String,
     required: true
   },
+  parentName: {
+    type: String,
+    required: true
+  },
+  userId: {
+    type: String,
+    required: true
+  },
   createdAt: {
     type: Date,
     default: Date.now
   }
-
 })
 
 // create a mongoose model to export

@@ -5,9 +5,9 @@ const auth = require('../../middleware/auth')
 const Todo = require('../../models/Todo')
 
 // Get All Todos
-// Public atm
-router.get('/:id', auth, (req, res) => {
-  Todo.find({ userId: req.params.id })
+// Private
+router.get('/:parentName', auth, (req, res) => {
+  Todo.find({ parentName: req.params.parentName })
     .sort({ date: -1 })
     .then(todos => res.json(todos))
 })
@@ -17,7 +17,9 @@ router.get('/:id', auth, (req, res) => {
 // @Private
 router.post('/', auth, (req, res) => {
   const newTodo = new Todo({
-    title: req.body.title
+    title: req.body.title,
+    parentName: req.body.parentName,
+    userId: req.body.userId
   })
 
   newTodo.save().then(todo => res.json(todo))

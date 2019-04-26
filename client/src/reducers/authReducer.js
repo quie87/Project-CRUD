@@ -49,9 +49,7 @@ export default function (state = initialState, action) {
         token: null,
         user: null,
         isAuthenticated: false,
-        isLoading: false,
-        todos: null,
-        projects: null
+        isLoading: false
       }
     default:
       return state

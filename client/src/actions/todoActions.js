@@ -3,8 +3,8 @@ import { tokenConfig } from './authActions'
 import { returnErrors } from './errorActions'
 import axios from 'axios'
 
-export const getTodos = id => (dispatch, getState) => {
-  axios.get(`api/todos/${id}`, tokenConfig(getState))
+export const getTodos = parentName => (dispatch, getState) => {
+  axios.get(`api/todos/${parentName}`, tokenConfig(getState))
     .then(res => dispatch({
       type: GET_TODOS,
       payload: res.data

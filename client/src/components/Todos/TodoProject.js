@@ -7,8 +7,8 @@ import AddTodo from './AddTodo'
 
 class TodoProject extends Component {
   componentDidMount () {
-    const { user } = this.props.auth
-    this.props.getTodos(user._id)
+    // const { user } = this.props.auth
+    // this.props.getTodos(user._id)
   }
 
   onDeleteClick = id => {

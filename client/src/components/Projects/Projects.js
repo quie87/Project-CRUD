@@ -5,7 +5,8 @@ import PropTypes from 'prop-types'
 class Projects extends Component {
   render () {
     return this.props.projects.map((project) => (
-      <ProjectItem key={project._id} project={project} onDeleteClick={this.props.onDeleteClick} getTodos={this.props.getTodos} />
+      <ProjectItem key={project._id} project={project} onDeleteProject={this.props.onDeleteProject}
+        getProjectTodos={this.props.getProjectTodos} />
     ))
   }
 }
@@ -13,7 +14,7 @@ class Projects extends Component {
 // PropTypes
 Projects.propTypes = {
   projects: PropTypes.array.isRequired,
-  onDeleteClick: PropTypes.func.isRequired
+  onDeleteProject: PropTypes.func.isRequired
 }
 
 export default Projects
