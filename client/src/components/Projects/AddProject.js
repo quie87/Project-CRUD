@@ -35,9 +35,9 @@ export class AddProject extends Component {
         />
         <input
           type='submit'
-          value='submit'
+          value='Add New Project'
           className='btn'
-					style={{ flex: 1 }}
+					style={{ flex: 2 }}
         />
       </form>
     )

@@ -63,7 +63,9 @@ class ProjectPlanner extends Component {
             { this.state.showTodos ?
               <div>
                 <AddTodo />
-                <Todos todos={todos} toggleComplete={this.toggleComplete} onDeleteTodo={this.onDeleteTodo} />
+                <ul className='todolist'>
+                  <Todos todos={todos} toggleComplete={this.toggleComplete} onDeleteTodo={this.onDeleteTodo} />
+                </ul>
               </div>
                :
               <div>
