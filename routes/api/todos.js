@@ -6,8 +6,8 @@ const Todo = require('../../models/Todo')
 
 // Get All Todos
 // Public atm
-router.get('/', (req, res) => {
-  Todo.find()
+router.get('/:id', auth, (req, res) => {
+  Todo.find({ userId: req.params.id })
     .sort({ date: -1 })
     .then(todos => res.json(todos))
 })

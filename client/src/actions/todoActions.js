@@ -3,8 +3,8 @@ import { tokenConfig } from './authActions'
 import { returnErrors } from './errorActions'
 import axios from 'axios'
 
-export const getTodos = () => dispatch => {
-  axios.get('api/todos')
+export const getTodos = id => (dispatch, getState) => {
+  axios.get(`api/todos/${id}`, tokenConfig(getState))
     .then(res => dispatch({
       type: GET_TODOS,
       payload: res.data
@@ -14,7 +14,7 @@ export const getTodos = () => dispatch => {
     )
 }
 
-export const addTodo = (todo) => (dispatch, getState) => {
+export const addTodo = todo => (dispatch, getState) => {
   axios
     .post('api/todos', todo, tokenConfig(getState))
     .then(res =>

@@ -7,7 +7,8 @@ import AddTodo from './AddTodo'
 
 class TodoProject extends Component {
   componentDidMount () {
-    this.props.getTodos()
+    const { user } = this.props.auth
+    this.props.getTodos(user._id)
   }
 
   onDeleteClick = id => {
@@ -36,7 +37,8 @@ class TodoProject extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  todo: state.todo
+  todo: state.todo,
+  auth: state.auth
 })
 
 export default connect(mapStateToProps, { getTodos, deleteTodo })(TodoProject)
