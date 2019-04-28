@@ -25,10 +25,10 @@ export class AddProject extends Component {
 
   render () {
     return (
-      <form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
+      <form onSubmit={this.onSubmit}>
         <input type='text'
           className='name'
-          style={{ flex: '10', padding: '5px' }}
+          // style={{ flex: '10', padding: '5px' }}
 					placeholder='Add project ...'
 					value={this.state.name}
 					onChange={this.onChange}
@@ -37,7 +37,7 @@ export class AddProject extends Component {
           type='submit'
           value='Add New Project'
           className='btn'
-					style={{ flex: 2 }}
+					// style={{ flex: 2 }}
         />
       </form>
     )

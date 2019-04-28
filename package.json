@@ -8,7 +8,8 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "lint": "standard"
+    "lint": "standard",
+    "test": "mocha ./tests --recursive"
   },
   "repository": {
     "type": "git",
