@@ -9,7 +9,7 @@ class Dashboard extends Component {
     const { isAuthenticated } = this.props.auth
     const auth = isAuthenticated ? <ProjectPlanner /> : <LandingPage />
     return (
-      <div className='container'>
+      <div>
         { auth }
       </div>
     )

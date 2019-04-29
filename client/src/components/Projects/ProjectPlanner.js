@@ -85,4 +85,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, { getProjects, deleteProject, getTodos, deleteTodo, isActive })(ProjectPlanner)
+export default connect(mapStateToProps, { 
+  getProjects, deleteProject, getTodos, deleteTodo, isActive
+})(ProjectPlanner)
