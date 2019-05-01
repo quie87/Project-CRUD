@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
-import { Navbar, Dropdown } from 'react-materialize'
+import { Navbar } from 'react-materialize'
 
 class Header extends Component {
   render () {
