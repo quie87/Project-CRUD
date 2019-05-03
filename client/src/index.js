@@ -4,6 +4,8 @@ import App from './App'
 
 import { Provider } from 'react-redux'
 import store from './store'
+// import register from './sw_register'
+// import * as sw from './sw_cache_site'
 import * as serviceWorker from './serviceWorker'
 // import { setState } from './LocalStorage'
 
@@ -22,25 +24,17 @@ ReactDOM.render(
 // the react way
 serviceWorker.register()
 
-// test 2
-// async function registerSW () {
+// funkar typ
+// function register () {
 //   if ('serviceWorker' in navigator) {
-//     try {
-//       await navigator.serviceWorker.register('./sw.js')
-//       console.log('SW registration success')
-//     } catch (e) {
-//       console.log('SW registration failed')
-//     }
+//     window.addEventListener('load', () => {
+//       navigator.serviceWorker
+//         .register('./sw_cache_site.js')
+//         // .register('./sw.js')
+//         .then(reg => console.log('SW: register'))
+//         .catch(err => console.log(`SW: failed ${err}`))
+//     })
 //   }
 // }
 
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', () => {
-//     navigator.serviceWorker
-//       .register('./sw.js')
-//       .then(reg => console.log('SW: register'))
-//       .catch(err => console.log(`SW: failed ${err}`))
-//   })
-// }
-
-// registerSW()
+// register()
