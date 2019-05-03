@@ -26,11 +26,22 @@ router.post('/', auth, (req, res) => {
 })
 
 // POST
+// Update todo completed
+// @ Private
+router.post('/:id', (req, res) => {
+  const id = req.params.isCompleted
+  console.log('Funkar' + id)
+
+  Todo.updateOne({ _id: req.params.id }, { completed: req.body.completed })
+    .then(todo => res.json(todo))
+})
+
+// POST
 // delete an Todo
 // @Private
 router.delete('/:id', auth, (req, res) => {
   Todo.findById(req.params.id)
-    .then(todo => todo.remove().then(() => res.json({ succes: true })))
+    .then(todo => todo.remove().then(() => res.json({ success: true })))
     .catch(() => res.status(404).json({ success: false }))
 })
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getProjects, deleteProject, isActive } from '../../actions/projectActions'
-import { getTodos, deleteTodo } from '../../actions/todoActions'
+import { getTodos, deleteTodo, toggleTodo } from '../../actions/todoActions'
 
 import Projects from './Projects'
 import AddProject from './AddProject'
@@ -10,7 +10,8 @@ import AddTodo from '../Todos/AddTodo'
 
 class ProjectPlanner extends Component {
   state = {
-    showTodos: false
+    showTodos: false,
+    todos: {}
   }
 
   componentDidMount () {
@@ -34,12 +35,15 @@ class ProjectPlanner extends Component {
   }
 
   toggleComplete = (id) => {
-    this.setState({ todos: this.state.todos.map(todo => {
-      if (todo._id === id) {
-        todo.completed = !todo.completed
-      }
-      return todo
-    }) })
+    const { todos } = this.props.todo
+    console.log(todos)
+    this.props.toggleTodo(id)
+    // this.setState({ todos: this.state.todos.map(todo => {
+    //   if (todo._id === id) {
+    //     todo.completed = !todo.completed
+    //   }
+    //   return todo
+    // }) })
   }
 
   render () {
@@ -64,7 +68,7 @@ class ProjectPlanner extends Component {
               <div>
                 <AddTodo />
                 <ul className='todolist'>
-                  <Todos todos={todos} toggleComplete={this.toggleComplete} onDeleteTodo={this.onDeleteTodo} />
+                  <Todos todos={todos} key={todos._id} toggleComplete={this.toggleComplete} onDeleteTodo={this.onDeleteTodo} />
                 </ul>
               </div>
                :
@@ -86,5 +90,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, { 
-  getProjects, deleteProject, getTodos, deleteTodo, isActive
+  getProjects, deleteProject, getTodos, deleteTodo, isActive, toggleTodo
 })(ProjectPlanner)

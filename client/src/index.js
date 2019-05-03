@@ -12,7 +12,7 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'))
 
-serviceWorker.register()
+// serviceWorker.register()
 
 // funkar typ
 // function register () {

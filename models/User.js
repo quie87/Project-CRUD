@@ -16,6 +16,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  completed: {
+    type: Boolean,
+    default: false
+  },
   register_date: {
     type: Date,
     default: Date.now

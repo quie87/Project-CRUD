@@ -1,4 +1,4 @@
-import { GET_TODOS, ADD_TODO, DELETE_TODO } from '../actions/types'
+import { GET_TODOS, ADD_TODO, DELETE_TODO, TOGGLE_TODO } from '../actions/types'
 
 const initialState = {
   todos: []
@@ -21,6 +21,14 @@ export default function (state = initialState, action) {
         ...state,
         todos: state.todos.filter(todo => todo._id !== action.payload)
       }
+    case TOGGLE_TODO:
+      return {
+        ...state,
+        todos: state.todos.map(todo =>
+          todo._id === action.payload ? { completed: !todo.completed } : todo
+        )
+      }
+
     default:
       return state
   }
