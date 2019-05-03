@@ -41,9 +41,3 @@ self.addEventListener('fetch', e => {
       .catch(() => caches.match(e.request).then(res => res || fetch(e.request)))
   )
 })
-
-// event.respondWith(
-//   caches.match(event.request).then(function (response) {
-//     return response || fetch(event.request)
-//   })
-// )

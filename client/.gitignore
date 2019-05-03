@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+public/sw_cache_site.js
+public/sw_register.js
