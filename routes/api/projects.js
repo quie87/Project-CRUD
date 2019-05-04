@@ -10,6 +10,7 @@ router.get('/:id', auth, (req, res) => {
   Project.find({ userId: req.params.id })
     .sort({ date: -1 })
     .then(projects => res.json(projects))
+    .catch(() => res.status(404).json({ success: false }))
 })
 
 // POST
@@ -22,6 +23,7 @@ router.post('/', auth, (req, res) => {
   })
 
   newProject.save().then(project => res.json(project))
+    .catch(() => res.status(404).json({ success: false }))
 })
 
 // POST

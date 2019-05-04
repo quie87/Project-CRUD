@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "lint": "standard",
-    "test": "mocha ./tests --recursive"
+    "test": "mocha ./test --recursive"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.18.11",
+    "supertest": "^4.0.2"
   },
   "nodemonConfig": {
     "ext": "js, json, hbs, html, css"
