@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "lint": "standard",
-    "test": "mocha ./test --recursive"
+    "test": "mocha ./test --recursive --timeout 15000"
   },
   "repository": {
     "type": "git",

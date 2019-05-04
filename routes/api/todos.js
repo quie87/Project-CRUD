@@ -22,7 +22,7 @@ router.post('/', auth, (req, res) => {
     userId: req.body.userId
   })
 
-  newTodo.save().then(todo => res.json(todo))
+  newTodo.save().then(todo => res.status(200).json(todo))
 })
 
 // POST
