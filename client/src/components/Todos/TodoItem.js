@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { isAbsolute } from 'path'
 
 export class TodoItem extends Component {
   render () {

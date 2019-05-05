@@ -28,7 +28,7 @@ export class AddProject extends Component {
     return (
       <div>
         <div>
-          <button href="#modal" className="modal-trigger project-btn">
+          <button href="#modal" className="modal-trigger standard-btn">
             Add New Project   
           </button>
           <Modal id="modal" header="Name your project">
@@ -41,7 +41,7 @@ export class AddProject extends Component {
               />
           {/* <button href='#modal' type='submit' className='modal-footer' >Add</button> */}
             <div className='modal-footer'>
-              <button href='#modal' type='submit' class='waves-effect waves-green btn-flat modal-close'>Add</button>
+              <button href='#modal' type='submit' className='waves-effect waves-green btn-flat modal-close'>Add</button>
             </div>
             </form>
           </Modal>

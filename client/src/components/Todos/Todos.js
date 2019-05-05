@@ -4,9 +4,13 @@ import PropTypes from 'prop-types'
 
 class Todos extends Component {
   render () {
-    return this.props.todos.map((todo) => (
+    let todosArr = this.props.todos.map(todo => (
       <TodoItem key={todo._id} todo={todo} toggleComplete={this.props.toggleComplete} onDeleteTodo={this.props.onDeleteTodo} />
-    ))
+    )).sort(function (a, b) { return Date.a - Date.b })
+
+    return (
+      todosArr
+    )
   }
 }
 

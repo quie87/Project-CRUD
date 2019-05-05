@@ -19,14 +19,15 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className='App'>
-          <Header />
           <div className='container'>
-            <Switch>
-              <Route exact path='/' component={Dashboard} />
-              <Route path='/signin' component={SignIn} />
-              <Route path='/signUp' component={SignUp} />
-            </Switch>
-            {/* <Footer /> */}
+            <Header />
+            <div className='wrapper'>
+              <Switch>
+                <Route exact path='/' component={Dashboard} />
+                <Route path='/signin' component={SignIn} />
+                <Route path='/signUp' component={SignUp} />
+              </Switch>
+            </div>
           </div>
         </div>
       </BrowserRouter>

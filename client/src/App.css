@@ -1,12 +1,26 @@
-/* Container wrapper */
+/* Main layout */
 body {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+.wrapper {
   width: 80%;
+  max-width: inherit;
   margin: 0 auto;
 }
+
+.innerWrapper {
+  width: 70%;
+  align-content: center;
+  margin: inherit;
+}
+
 .container {
   width: 100%;
-	margin: 10px;
-	margin: 0 auto;
+  max-width: inherit;
+  margin: 0 auto;
 }
 
 /* Navbar 
@@ -16,6 +30,15 @@ body {
   margin-bottom: 40px;
   padding-left: 50px;
   padding-right: 50px;
+}
+
+/* Layout for logged in user
+-----------------------------------------*/
+.projects {
+  border-right: 1px solid #444;
+  padding: 5px;
+  overflow-y: scroll;
+  height: 85vh;
 }
 
 /* Image
@@ -46,15 +69,10 @@ p {
 	background-color: #ee6e73;
 }
 
-.todo {
-	margin-top: 20px;
-}
-
-
 /* btn´s
 -------------------------------------------------*/
 
-.project-btn {
+.standard-btn {
 	margin-top: 20px;
 	border-radius: 25px;
 	background-color: rgb(255,112,67);
@@ -67,7 +85,8 @@ p {
 	padding: 5px;
 	font-weight: 500;
 	text-align: center;
-	cursor: pointer;
+  cursor: pointer;
+  max-width: 400px;
 }
 
 .remove-btn {
@@ -81,14 +100,6 @@ p {
   float: right;
 }
 
-/* Random */
-
-.todolist li {
-	list-style: none;
-	background: #f4f4f4;
-	padding: 10px;
-	border-bottom: 1px #ccc dotted;
-}
 
 /* Style for checkbox todo done or not 
 ----------------------------------------------------------*/
@@ -104,21 +115,21 @@ p {
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0.7em;
+  left: 0.7em;
   height: 25px;
   width: 25px;
-  background-color: #eee;
+  background-color: none;
 }
 
 /* On mouse-over, add a grey background color */
 .togglebox:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 /* When the checkbox is checked, add a blue background */
 .togglebox input:checked ~ .checkmark {
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -144,4 +155,30 @@ p {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+/* Forms
+--------------------------------------------------*/
+.signup {
+  max-width: 400px;
+  min-width: 200px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* ul, ui, li 
+------------------------------------------------*/
+.todolist li {
+  margin-bottom: 0.5rem;
+	list-style: none;
+  padding: 10px;
+  border-radius: 5rem;
+  border: 1px #ccc dotted;
+  box-shadow: 4px 7px 10px 3px rgba(197, 196, 196, .2);
+}
+
+.projects li {
+  list-style: none;
+  padding: 10px;
+  border-radius: 5rem;
 }

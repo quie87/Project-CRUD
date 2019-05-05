@@ -53,16 +53,24 @@ class ProjectPlanner extends Component {
     const { todos } = this.props.todo
 
     return (
+      // Left side
       <div className='row'>
-        <div className="col s12 m4 l4">
-          <h3 className='center'>Projects</h3>
-          <div>
-            <AddProject />
-            <Projects projects={projects} onDeleteProject={this.onDeleteProject}
-              user={this.props.auth.user} getProjectTodos={this.getProjectTodos} />
+        <div className="col s12 m6 l4">
+          <div className='projects'>
+            <h3>Projects</h3>
+            <div>
+              <AddProject />
+              <ul className='projectlist'>
+                <Projects projects={projects} onDeleteProject={this.onDeleteProject}
+                  user={this.props.auth.user} getProjectTodos={this.getProjectTodos} />
+              </ul>
+            </div>  
           </div>
         </div>
-        <div className="col s12 m8 l8">
+
+       {/* Right side */}
+
+        <div className="col s12 m6 l8">
           <div className='todo'>
           <h3 className='center'>Your Todos</h3>
           { this.state.showTodos ?

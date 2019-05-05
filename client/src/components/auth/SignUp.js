@@ -45,7 +45,7 @@ class SignUp extends Component {
 
   render () {
     return (
-      <div className='container'>
+      <div className='innerWrapper'>
 				<form onSubmit={this.handleSubmit} >
 					<h5>Signup</h5>
 					<div>
@@ -60,7 +60,7 @@ class SignUp extends Component {
 						<label>Password</label>
 						<input onChange={this.handleChange} type='password' name='password' id='password' placeholder='Password...' required />
 					</div>
-					<button>Sign up</button>
+					<button className='standard-btn'>Sign up</button>
 					</form>
 			</div>
     )

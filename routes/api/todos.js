@@ -8,7 +8,6 @@ const Todo = require('../../models/Todo')
 // Private
 router.get('/:parentName', auth, (req, res) => {
   Todo.find({ parentName: req.params.parentName })
-    .sort({ date: -1 })
     .then(todos => res.json(todos))
 })
 
