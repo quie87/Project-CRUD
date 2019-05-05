@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addProject } from '../../actions/projectActions'
 import PropTypes from 'prop-types'
+import { Modal } from 'react-materialize'
 
 export class AddProject extends Component {
 	state = {
@@ -25,21 +26,28 @@ export class AddProject extends Component {
 
   render () {
     return (
-      <form onSubmit={this.onSubmit}>
-        <input type='text'
-          className='name'
-          // style={{ flex: '10', padding: '5px' }}
-					placeholder='Add project ...'
-					value={this.state.name}
-					onChange={this.onChange}
-        />
-        <input
-          type='submit'
-          value='Add New Project'
-          className='btn'
-					// style={{ flex: 2 }}
-        />
-      </form>
+      <div>
+        <div>
+          <button href="#modal" className="modal-trigger project-btn">
+            Add New Project   
+          </button>
+          <Modal id="modal" header="Name your project">
+            <form onSubmit={this.onSubmit}>
+              <input type='text'
+              className='name'
+              placeholder='Add project..'
+              value={this.state.name}
+              onChange={this.onChange}
+              />
+          {/* <button href='#modal' type='submit' className='modal-footer' >Add</button> */}
+            <div className='modal-footer'>
+              <button href='#modal' type='submit' class='waves-effect waves-green btn-flat modal-close'>Add</button>
+            </div>
+            </form>
+          </Modal>
+
+          </div>
+      </div>
     )
   }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getProjects, deleteProject, isActive } from '../../actions/projectActions'
 import { getTodos, deleteTodo, toggleTodo } from '../../actions/todoActions'
+import { Modal, Button } from 'react-materialize'
 
 import Projects from './Projects'
 import AddProject from './AddProject'
@@ -52,31 +53,29 @@ class ProjectPlanner extends Component {
     const { todos } = this.props.todo
 
     return (
-      <div className='container'>
-        <div className='row'>
-          <div className="col s12 m4 l4">
-            <h3 className='center'>Projects</h3>
-            <div>
-              <AddProject />
-              <Projects projects={projects} onDeleteProject={this.onDeleteProject}
-                user={this.props.auth.user} getProjectTodos={this.getProjectTodos} />
-            </div>
+      <div className='row'>
+        <div className="col s12 m4 l4">
+          <h3 className='center'>Projects</h3>
+          <div>
+            <AddProject />
+            <Projects projects={projects} onDeleteProject={this.onDeleteProject}
+              user={this.props.auth.user} getProjectTodos={this.getProjectTodos} />
           </div>
-          <div className="col s12 m8 l8">
-            <div className='todo'>
-            <h3 className='center'>Your Todos</h3>
-            { this.state.showTodos ?
-              <div>
-                <AddTodo />
-                <ul className='todolist'>
-                  <Todos todos={todos} key={todos._id} toggleComplete={this.toggleComplete} onDeleteTodo={this.onDeleteTodo} />
-                </ul>
-              </div>
-               :
-              <div>
-                <h5><center>Select a project to add new todos to it <br/> Or add a new project</center></h5>
-              </div> }
+        </div>
+        <div className="col s12 m8 l8">
+          <div className='todo'>
+          <h3 className='center'>Your Todos</h3>
+          { this.state.showTodos ?
+            <div>
+              <AddTodo />
+              <ul className='todolist'>
+                <Todos todos={todos} key={todos._id} toggleComplete={this.toggleComplete} onDeleteTodo={this.onDeleteTodo} />
+              </ul>
             </div>
+              :
+            <div>
+              <h5><center>Select a project to add new todos to it <br/> Or add a new project</center></h5>
+            </div> }
           </div>
         </div>
       </div>
