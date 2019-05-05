@@ -1,8 +1,29 @@
+/* Container wrapper */
+body {
+  width: 80%;
+  margin: 0 auto;
+}
 .container {
-	min-height: 80vh;
+  width: 100%;
 	margin: 10px;
 	margin: 0 auto;
 }
+
+/* Navbar */
+.Navbar {
+  margin-bottom: 40px;
+}
+
+.landing-img {
+  max-width: 600px; 
+  height:auto;
+}
+
+p {
+  text-align: left;
+}
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */

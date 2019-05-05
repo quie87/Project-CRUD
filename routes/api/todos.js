@@ -28,6 +28,7 @@ router.post('/', auth, (req, res) => {
 // POST
 // Update todo completed
 // @ Private
+// PUT?
 router.post('/:id', (req, res) => {
   const id = req.params.isCompleted
   console.log('Funkar' + id)
