@@ -38,8 +38,15 @@ class ProjectPlanner extends Component {
 
   toggleComplete = (id) => {
     const { todos } = this.props.todo
-    console.log(todos)
-    this.props.toggleTodo(id)
+    
+    const todo = todos.map(todo => {
+      if (todo._id === id) {
+        todo.completed = !todo.completed
+      }
+      return todo
+    })
+
+    this.props.toggleTodo(id, todo.completed)
     // this.setState({ todos: this.state.todos.map(todo => {
     //   if (todo._id === id) {
     //     todo.completed = !todo.completed

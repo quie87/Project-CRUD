@@ -40,13 +40,13 @@ export const deleteTodo = id => (dispatch, getState) => {
     )
 }
 
-export const toggleTodo = isCompleted => (dispatch, getState) => {
+export const toggleTodo = (todo) => (dispatch) => {
   axios
-    .post(`api/todos/${isCompleted}`, tokenConfig(getState))
+    .put(`api/todos/${todo}`)
     .then(res =>
       dispatch({
         type: 'TOGGLE_TODO',
-        payload: isCompleted
+        payload: res.data
       }))
     .catch(err =>
       dispatch(returnErrors(err.response.data, err.response.status))

@@ -28,11 +28,14 @@ router.post('/', auth, (req, res) => {
 // Update todo completed
 // @ Private
 // PUT?
-router.post('/:id', (req, res) => {
-  const id = req.params.isCompleted
-  console.log('Funkar' + id)
+router.put('/:todo', (req, res) => {
+  const id = req.params.todo.id
+  const todo = req.params.todo.completed
 
-  Todo.updateOne({ _id: req.params.id }, { completed: req.body.completed })
+  console.log('Funkar ' + id)
+  console.log('Funkar ' + todo)
+
+  Todo.updateOne({ _id: req.params.id }, { completed: todo })
     .then(todo => res.json(todo))
 })
 
