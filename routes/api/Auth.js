@@ -5,9 +5,9 @@ const auth = require('../../middleware/auth')
 // User Model
 const User = require('../../models/User')
 
-// @rout POST api/auth
-// @desc Auth user
-// Public atm
+// @route POST api/auth
+// @description Auth user
+// Public
 router.post('/', (req, res) => {
   const { email, password } = req.body
 
@@ -47,7 +47,7 @@ router.post('/', (req, res) => {
 })
 
 // @rout Get api/auth/user
-// @desc Get user data
+// @desciption Get user data but not password
 // Private
 
 router.get('/user', auth, (req, res) => {

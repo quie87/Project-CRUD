@@ -14,7 +14,7 @@ router.get('/:parentName', auth, (req, res) => {
 // POST
 // Create an Todo
 // @Private
-router.post('/', auth, (req, res) => {
+router.post('/create', auth, (req, res) => {
   const newTodo = new Todo({
     title: req.body.title,
     parentName: req.body.parentName,
@@ -25,18 +25,21 @@ router.post('/', auth, (req, res) => {
 })
 
 // POST
-// Update todo completed
-// @ Private
-// PUT?
-router.put('/:todo', (req, res) => {
-  const id = req.params.todo.id
-  const todo = req.params.todo.completed
-
-  console.log('Funkar ' + id)
-  console.log('Funkar ' + todo)
-
-  Todo.updateOne({ _id: req.params.id }, { completed: todo })
+// Toggle todo completed or not
+// @ Public
+router.post('/update/:id', (req, res) => {
+  Todo.findById(req.params.id)
+    .then(todo => {
+      todo.completed = !todo.completed
+      return todo
+    })
+    .then(update => update.save())
+    .then(todo => {
+      Todo.updateOne({ _id: req.params._id }, { $set: { completed: todo.completed } })
+      return todo
+    })
     .then(todo => res.json(todo))
+    .catch(() => res.status(400).json({ success: false }))
 })
 
 // POST

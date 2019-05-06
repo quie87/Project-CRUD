@@ -24,9 +24,7 @@ export default function (state = initialState, action) {
     case TOGGLE_TODO:
       return {
         ...state,
-        todos: state.todos.map(todo =>
-          todo._id === action.payload ? { completed: !todo.completed } : todo
-        )
+        todos: state.todos.map(todo => todo._id === action.payload._id ? action.payload : todo)
       }
 
     default:

@@ -16,7 +16,7 @@ export const getTodos = parentName => (dispatch, getState) => {
 
 export const addTodo = todo => (dispatch, getState) => {
   axios
-    .post('api/todos', todo, tokenConfig(getState))
+    .post('api/todos/create', todo, tokenConfig(getState))
     .then(res =>
       dispatch({
         type: ADD_TODO,
@@ -40,9 +40,9 @@ export const deleteTodo = id => (dispatch, getState) => {
     )
 }
 
-export const toggleTodo = (todo) => (dispatch) => {
+export const toggleTodo = id => (dispatch) => {
   axios
-    .put(`api/todos/${todo}`)
+    .post(`api/todos/update/${id}`)
     .then(res =>
       dispatch({
         type: 'TOGGLE_TODO',
