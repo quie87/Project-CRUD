@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getProjects, deleteProject, isActive } from '../../actions/projectActions'
 import { getTodos, deleteTodo, toggleTodo } from '../../actions/todoActions'
-import { Modal, Button } from 'react-materialize'
 
 import Projects from './Projects'
 import AddProject from './AddProject'

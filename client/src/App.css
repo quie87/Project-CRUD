@@ -14,7 +14,7 @@ body {
 .innerWrapper {
   width: 70%;
   align-content: center;
-  margin: inherit;
+  margin: 0 auto;
 }
 
 .container {
