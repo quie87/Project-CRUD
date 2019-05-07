@@ -8,8 +8,8 @@ export class ProjectItem extends Component {
     return (
       <div>
         <li>
-          <button className='standard-btn' onClick={this.props.getProjectTodos.bind(this, name)}> { name } </button>
-          <button className='remove-btn' onClick={this.props.onDeleteProject.bind(this, _id)} >x</button>
+          <button className='project-btn' onClick={this.props.getProjectTodos.bind(this, name)}> { name } </button>
+          <button className='remove-btn' onClick={this.props.onDeleteProject.bind(this, _id)} ><i className='fa fa-trash' /></button>
         </li>
       </div>
     )

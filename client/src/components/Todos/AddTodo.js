@@ -33,7 +33,7 @@ export class AddTodo extends Component {
       <form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
         <input type='text'
           className='title'
-          style={{ flex: '10', padding: '5px' }}
+          style={{ flex: 7, padding: '5px' }}
 					placeholder='Add Todo ...'
 					value={this.state.title}
 					onChange={this.onChange}
@@ -42,7 +42,7 @@ export class AddTodo extends Component {
           type='submit'
           value='Add'
           className='standard-btn'
-					style={{ flex: 1 }}
+					style={{ flex: 3 }}
         />
       </form>
     )

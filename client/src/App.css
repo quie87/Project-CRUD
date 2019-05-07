@@ -12,7 +12,7 @@ body {
 }
 
 .innerWrapper {
-  width: 70%;
+  width: 60%;
   align-content: center;
   margin: 0 auto;
 }
@@ -35,8 +35,11 @@ body {
 /* Layout for logged in user
 -----------------------------------------*/
 .projects {
-  border-right: 1px solid #444;
-  padding: 5px;
+  overflow-y: scroll;
+  height: 85vh;
+}
+
+.todo {
   overflow-y: scroll;
   height: 85vh;
 }
@@ -55,20 +58,6 @@ p {
 }
 
 
-
-/* Sticky footer styles
--------------------------------------------------- */
-.footer {
-	max-width: 1280px;
-	text-align: center;
-	padding: 20px;
-	color: #fff;
-}
-
-.page-footer .footer-copyright {
-	background-color: #ee6e73;
-}
-
 /* btn´s
 -------------------------------------------------*/
 
@@ -81,7 +70,7 @@ p {
 	font-size: 18px;
 	line-height: 1.5em;
 	height: 100%;
-	width: 85%; /*375px*/
+	width: 85%;
 	padding: 5px;
 	font-weight: 500;
 	text-align: center;
@@ -91,7 +80,7 @@ p {
 
 .remove-btn {
 	background-color: #ff0000;
-	margin-top: 20px;
+	margin-top: 0.2em;
   color: #fff;
   border: none;
   padding: 5px 10px;
@@ -100,6 +89,19 @@ p {
   float: right;
 }
 
+.project-btn {
+  width: 90%;
+  border: 0px;
+  background-color: #fafafa;
+  font-weight: 700;
+  padding: 0.6em;
+  border-left: 0.3em solid rgb(255,112,67);
+  cursor: pointer;
+}
+
+button:link {
+  background-color: #eee;
+}
 
 /* Style for checkbox todo done or not 
 ----------------------------------------------------------*/
@@ -115,7 +117,7 @@ p {
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
-  top: 0.7em;
+  top: 0.2em;
   left: 0.7em;
   height: 25px;
   width: 25px;
@@ -159,11 +161,12 @@ p {
 
 /* Forms
 --------------------------------------------------*/
-.signup {
+form, .signup {
   max-width: 400px;
   min-width: 200px;
   font-size: 18px;
   font-weight: 700;
+  margin: 0 auto;
 }
 
 /* ul, ui, li 
@@ -179,6 +182,8 @@ p {
 
 .projects li {
   list-style: none;
-  padding: 10px;
-  border-radius: 5rem;
+  padding: 0.4em;
+  border: 1px dotted #ccc;
+  border-radius: 5em;
+  background-color: #fafafa;
 }

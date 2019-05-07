@@ -13,21 +13,11 @@ export class TodoItem extends Component {
             <span className='checkmark' />
           </label>
           { title }
-          <button onClick={this.props.onDeleteTodo.bind(this, _id)} style={btnStyle}>x</button>
+          <button className='remove-btn' onClick={this.props.onDeleteTodo.bind(this, _id)}><i className='fa fa-trash' /></button>
         </li>
       </div>
     )
   }
-}
-
-const btnStyle = {
-  background: '#ff0000',
-  color: '#fff',
-  border: 'none',
-  padding: '5px 10px',
-  borderRadius: '70%',
-  cursor: 'pointer',
-  float: 'right'
 }
 
 TodoItem.propTypes = {

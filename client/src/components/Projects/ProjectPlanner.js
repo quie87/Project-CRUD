@@ -47,7 +47,7 @@ class ProjectPlanner extends Component {
       // Left side
       <div className='row'>
         <div className="col s12 m6 l4">
-          <div className='projects'>
+          <div className='projects center'>
             <h3>Projects</h3>
             <div>
               <AddProject />
@@ -67,14 +67,17 @@ class ProjectPlanner extends Component {
           { this.state.showTodos ?
             <div>
               <AddTodo />
-              <ul className='todolist'>
+              <ul className='todolist '>
                 <Todos todos={todos} key={todos._id} toggleComplete={this.toggleComplete} onDeleteTodo={this.onDeleteTodo} />
               </ul>
             </div>
               :
-            <div>
-              <h5><center>Select a project to add new todos to it <br/> Or add a new project</center></h5>
-            </div> }
+            <div className='center' >
+              <h5>Select a project to add new todos to it <br /> 
+              Or add a new project
+              </h5>
+            </div> 
+          }
           </div>
         </div>
       </div>

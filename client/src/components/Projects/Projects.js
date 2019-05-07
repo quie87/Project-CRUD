@@ -18,7 +18,8 @@ class Projects extends Component {
 // PropTypes
 Projects.propTypes = {
   projects: PropTypes.array.isRequired,
-  onDeleteProject: PropTypes.func.isRequired
+  onDeleteProject: PropTypes.func.isRequired,
+  getProjectTodos: PropTypes.func.isRequired
 }
 
 export default Projects

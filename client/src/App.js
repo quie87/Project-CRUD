@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { loadUser } from './actions/authActions'
 
 import Header from './components/layout/Header'
-import Footer from './components/layout/Footer'
 import Dashboard from './components/dashboard/Dashboard'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
@@ -21,13 +20,11 @@ class App extends Component {
         <div className='App'>
           <div className='container'>
             <Header />
-            <div className='wrapper'>
-              <Switch>
-                <Route exact path='/' component={Dashboard} />
-                <Route path='/signin' component={SignIn} />
-                <Route path='/signUp' component={SignUp} />
-              </Switch>
-            </div>
+            <Switch>
+              <Route exact path='/' component={Dashboard} />
+              <Route path='/signin' component={SignIn} />
+              <Route path='/signUp' component={SignUp} />
+            </Switch>
           </div>
         </div>
       </BrowserRouter>
