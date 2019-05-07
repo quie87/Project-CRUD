@@ -173,6 +173,7 @@ form, .signup {
 ------------------------------------------------*/
 .todolist li {
   margin-bottom: 0.5rem;
+  font-weight: 600;
 	list-style: none;
   padding: 10px;
   border-radius: 5rem;
