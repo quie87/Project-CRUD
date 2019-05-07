@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { register } from '../../actions/authActions'
+import { returnErrors } from '../../actions/errorActions';
+import { REGISTER_FAIL } from '../../actions/types';
 
 
 class SignUp extends Component {
@@ -40,7 +42,11 @@ class SignUp extends Component {
 		}
 
 		// Attemt to register
-		this.props.register(newUser)
+		if (password.length < 8) {
+			this.props.returnErrors('Pls enter a password longer then 8 characters', 400, REGISTER_FAIL)
+		} else {
+			this.props.register(newUser)
+		}
 	}
 
   render () {
@@ -74,5 +80,5 @@ const mapStateToProps = state => ({
 
 export default connect(
 	mapStateToProps,
-	{ register }
+	{ register, returnErrors }
 	)(SignUp)

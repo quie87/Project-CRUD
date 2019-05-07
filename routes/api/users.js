@@ -16,6 +16,10 @@ router.post('/', (req, res) => {
     return res.status(400).json({ msg: 'Pls enter all fields' })
   }
 
+  if (password.length < 8) {
+    return res.status(400).json({ msg: 'Pls enter a password that is longer then 8 characters' })
+  }
+
   // Check for existing user
   User.findOne({ email })
     .then(user => {
