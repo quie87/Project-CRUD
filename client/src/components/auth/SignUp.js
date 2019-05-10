@@ -56,7 +56,7 @@ class SignUp extends Component {
 					<h5>Signup</h5>
 					<div>
 						<label>Name</label>
-						<input onChange={this.handleChange} type='text' name='name' id='name' placeholder='Name...' />
+						<input onChange={this.handleChange} type='text' name='name' id='name' placeholder='Name...' required/>
 					</div>
 					<div>
 						<label>Email</label>
