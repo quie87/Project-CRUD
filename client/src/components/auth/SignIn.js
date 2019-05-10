@@ -24,6 +24,7 @@ class SignIn extends Component {
 				this.setState({ msg: null })
 			}
 		}
+
 		if(isAuthenticated) {
 			this.props.history.push('/')
 		}
@@ -69,6 +70,7 @@ class SignIn extends Component {
 
 const mapStateToProps = state => ({
 	isAuthenticated: state.auth.isAuthenticated,
+	auth: state.auth,
 	error: state.error
 })
 

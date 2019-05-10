@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getProjects, deleteProject, isActive } from '../../actions/projectActions'
 import { getTodos, deleteTodo, toggleTodo } from '../../actions/todoActions'
+import { loadUser } from '../../actions/authActions'
 
 import Projects from './Projects'
 import AddProject from './AddProject'
@@ -10,17 +11,14 @@ import AddTodo from '../Todos/AddTodo'
 
 class ProjectPlanner extends Component {
   state = {
-    showTodos: false,
-    todos: {}
+    showTodos: false
   }
 
   componentDidMount () {
     const { user } = this.props.auth
-
     this.props.getProjects(user._id)
-    this.props.getTodos(user._id)
   }
-
+  
   onDeleteProject = id => {
     this.props.deleteProject(id)
   }
@@ -53,7 +51,7 @@ class ProjectPlanner extends Component {
               <AddProject />
               <ul className='projectlist'>
                 <Projects projects={projects} onDeleteProject={this.onDeleteProject}
-                  user={this.props.auth.user} getProjectTodos={this.getProjectTodos} />
+                  getProjectTodos={this.getProjectTodos} />
               </ul>
             </div>  
           </div>
@@ -92,5 +90,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, { 
-  getProjects, deleteProject, getTodos, deleteTodo, isActive, toggleTodo
+  getProjects, deleteProject, getTodos, deleteTodo, isActive, toggleTodo, loadUser
 })(ProjectPlanner)

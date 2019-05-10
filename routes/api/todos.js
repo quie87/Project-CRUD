@@ -34,10 +34,10 @@ router.post('/update/:id', (req, res) => {
       return todo
     })
     .then(update => update.save())
-    .then(todo => {
-      Todo.updateOne({ _id: req.params._id }, { $set: { completed: todo.completed } })
-      return todo
-    })
+    // .then(todo => {
+    //   Todo.updateOne({ _id: req.params._id }, { $set: { completed: todo.completed } })
+    //   return todo
+    // })
     .then(todo => res.json(todo))
     .catch(() => res.status(400).json({ success: false }))
 })
