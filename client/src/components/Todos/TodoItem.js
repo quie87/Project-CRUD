@@ -7,13 +7,18 @@ export class TodoItem extends Component {
 
     return (
       <div>
-        <li style={{ textDecoration: completed ? 'line-through' : 'none' }}>
-          <label className='togglebox'>
-            <input type='checkbox' onChange={this.props.toggleComplete.bind(this, _id)} />
+        <li className='flex-container' style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+          <label>
+            <input className='flex-2 togglebox'
+              id={_id}
+              type='checkbox'
+              checked={completed}
+              onChange={this.props.toggleComplete.bind(this, _id)}
+            />
             <span className='checkmark' />
           </label>
-          { title }
-          <button className='remove-btn' onClick={this.props.onDeleteTodo.bind(this, _id)}><i className='fa fa-trash' /></button>
+          <span className='flex-1'> { title } </span>
+          <button className='remove-btn flex-3' onClick={this.props.onDeleteTodo.bind(this, _id)}><i className='fa fa-trash' /></button>
         </li>
       </div>
     )

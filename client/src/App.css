@@ -79,6 +79,8 @@ p {
 }
 
 .remove-btn {
+  max-width: 2em;
+  max-height: 2em;
 	background-color: #ff0000;
 	margin-top: 0.2em;
   color: #fff;
@@ -108,6 +110,7 @@ button:link {
 /* Hide the browser's default checkbox */
 .togglebox input {
   position: absolute;
+  margin: 0;
   opacity: 0;
   cursor: pointer;
   height: 0;
@@ -117,22 +120,23 @@ button:link {
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
-  top: 0.2em;
-  left: 0.7em;
+  margin-right: 0.4rem;
+  top: 0.2rem;
+  left: 1rem;
   height: 25px;
   width: 25px;
   background-color: none;
 }
 
-/* On mouse-over, add a grey background color */
+/* On mouse-over, add a grey background color
 .togglebox:hover input ~ .checkmark {
-  background-color: #fff;
+  background-color: #eee;
 }
 
 /* When the checkbox is checked, add a blue background */
-.togglebox input:checked ~ .checkmark {
+/* .togglebox input:checked ~ .checkmark {
   background-color: #fff;
-}
+}  */
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
@@ -182,9 +186,28 @@ form, .signup {
 }
 
 .projects li {
+  margin-bottom: 0.5rem;
   list-style: none;
   padding: 0.4em;
   border: 1px dotted #ccc;
   border-radius: 5em;
   background-color: #fafafa;
+}
+
+/* Flex for list items that contains projects and todos 
+------------------------------------------------------------------------*/
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-1 {
+  flex:15;
+}
+.flex-2 {
+  flex:1;
+}
+.flex-3 {
+  flex:1;
 }

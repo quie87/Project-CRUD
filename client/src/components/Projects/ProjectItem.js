@@ -7,9 +7,9 @@ export class ProjectItem extends Component {
 
     return (
       <div>
-        <li>
-          <button className='project-btn' onClick={this.props.getProjectTodos.bind(this, name)}> { name } </button>
-          <button className='remove-btn' onClick={this.props.onDeleteProject.bind(this, _id)} ><i className='fa fa-trash' /></button>
+        <li className='flex-container'>
+          <button className='project-btn flex-1' onClick={this.props.getProjectTodos.bind(this, name)}> { name } </button>
+          <button className='remove-btn flex-2' onClick={this.props.onDeleteProject.bind(this, _id)} ><i className='fa fa-trash' /></button>
         </li>
       </div>
     )
