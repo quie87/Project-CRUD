@@ -2,7 +2,7 @@ const express = require('express')
 // const mongoose = require('./config/mongoose.js')
 const mongoose = require('mongoose')
 const config = require('config')
-const helmet = require('helmet')
+// const helmet = require('helmet')
 const path = require('path')
 require('dotenv').config()
 
@@ -35,15 +35,15 @@ mongoose
 app.use(express.json())
 
 // Put the helmet on
-app.use(helmet())
+// app.use(helmet())
 
-app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: ["'self'"],
-    fontSrc: ["'self'"],
-    scriptSrc: ["'self'"]
-  }
-}))
+// app.use(helmet.contentSecurityPolicy({
+//   directives: {
+//     defaultSrc: ["'self'"],
+//     fontSrc: ["'self'"],
+//     scriptSrc: ["'self'"]
+//   }
+// }))
 
 // Use routes
 app.use('/api/projects', projects)
