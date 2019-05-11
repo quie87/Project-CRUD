@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { loadUser } from './actions/authActions'
 
-// import Header from './components/layout/Header'
+import Navbar from './components/layout/Navbar'
 import Dashboard from './components/dashboard/Dashboard'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
@@ -19,7 +19,7 @@ class App extends Component {
       <BrowserRouter>
         <div className='App'>
           <div className='container'>
-            {/* <Header /> */}
+            <Navbar />
             <Switch>
               <Route exact path='/' component={Dashboard} />
               <Route path='/signin' component={SignIn} />
