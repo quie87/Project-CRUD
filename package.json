@@ -1,6 +1,10 @@
 {
   "name": "ka222vq-project",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.11.0",
+    "npm": "6.4.1"
+  },
   "description": "Todo application build with the MERN stack",
   "main": "server.js",
   "scripts": {
