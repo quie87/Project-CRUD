@@ -1,5 +1,7 @@
 const express = require('express')
-const mongoose = require('./config/mongoose.js')
+// const mongoose = require('./config/mongoose.js')
+const mongoose = require('mongoose')
+const config = require('config')
 const helmet = require('helmet')
 const path = require('path')
 require('dotenv').config()
@@ -9,15 +11,25 @@ const todos = require('./routes/api/todos')
 const users = require('./routes/api/users')
 const auth = require('./routes/api/auth')
 
-const port = process.env.PORT || 5000
-
 const app = express()
 
 // Connect to MongoDB
-mongoose.run().catch(error => {
-  console.error(error)
-  process.exit(1)
-})
+// mongoose.run().catch(error => {
+//   console.error(error)
+//   process.exit(1)
+// })
+
+// DB Config
+const db = config.get('mongoURI')
+
+// Connect to Mongo
+mongoose
+  .connect(db, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }) // Adding new mongo url parser
+  .then(() => console.log('MongoDB Connected...'))
+  .catch(err => console.log(err))
 
 // Bodyparser middleware
 app.use(express.json())
@@ -38,6 +50,8 @@ app.use('/api/projects', projects)
 app.use('/api/todos', todos)
 app.use('/api/users', users)
 app.use('/api/auth', auth)
+
+const port = process.env.PORT || 5000
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
