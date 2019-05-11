@@ -16,19 +16,20 @@ class LandingPage extends Component {
         <div className='col s12 m12 l12 center'>
           <div className='main'>
             <h1>
-              Why join us?
+              What to do?
             </h1>
           </div>
           <div className='boxes'>
             <div className='box1 col s12 m6 l6'>
               <p>
                 That is a question I ask my self all the time. I know there is alot to do but what was it?
-                Sometimes it´s hard to remember when there is alot on you´re plate and if you are like me, jugnling all
+                Sometimes it´s hard to remember when there is alot on you´re plate and if you are like me, juggling all
                 those balls can be hard.
               </p>
             </div>
             <div className='box2 col s12 m6 l6'>
               <p>Therefor I created this app. Register for free and start adding your project and stuff to do.
+                When you have finished a task, check it of and move on!
                 That way you can get organized and atleast have one less thing to think about!
               </p>
             </div>

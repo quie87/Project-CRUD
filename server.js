@@ -4,11 +4,16 @@ const helmet = require('helmet')
 const path = require('path')
 require('dotenv').config()
 
+const projects = require('./routes/api/projects')
+const todos = require('./routes/api/todos')
+const users = require('./routes/api/users')
+const auth = require('./routes/api/auth')
+
 const port = process.env.PORT || 5000
 
 const app = express()
 
-// Connect to the database.
+// Connect to MongoDB
 mongoose.run().catch(error => {
   console.error(error)
   process.exit(1)
@@ -29,10 +34,10 @@ app.use(helmet.contentSecurityPolicy({
 }))
 
 // Use routes
-app.use('/api/projects', require('./routes/api/projects'))
-app.use('/api/todos', require('./routes/api/todos'))
-app.use('/api/users', require('./routes/api/users'))
-app.use('/api/auth', require('./routes/api/auth'))
+app.use('/api/projects', projects)
+app.use('/api/todos', todos)
+app.use('/api/users', users)
+app.use('/api/auth', auth)
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
@@ -47,7 +52,6 @@ if (process.env.NODE_ENV === 'production') {
 // Starts server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
-  console.log('Press Ctrl-C to terminate...\n')
 })
 
 module.exports = app
