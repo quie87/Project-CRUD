@@ -6,12 +6,12 @@ const config = require('config')
 const path = require('path')
 require('dotenv').config()
 
+const app = express()
+
 const projects = require('./routes/api/projects')
 const todos = require('./routes/api/todos')
 const users = require('./routes/api/users')
 const auth = require('./routes/api/auth')
-
-const app = express()
 
 // Connect to MongoDB
 // mongoose.run().catch(error => {
@@ -51,8 +51,6 @@ app.use('/api/todos', todos)
 app.use('/api/users', users)
 app.use('/api/auth', auth)
 
-const port = process.env.PORT || 5000
-
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
@@ -63,9 +61,8 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-// Starts server
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`)
-})
+const port = process.env.PORT || 5000
 
-module.exports = app
+app.listen(port, () => console.log(`Server started on port ${port}`))
+
+// module.exports = app
