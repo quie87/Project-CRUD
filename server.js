@@ -8,11 +8,6 @@ const path = require('path')
 
 const app = express()
 
-const projects = require('./routes/api/projects')
-const todos = require('./routes/api/todos')
-const users = require('./routes/api/users')
-const auth = require('./routes/api/auth')
-
 // Connect to MongoDB
 // mongoose.run().catch(error => {
 //   console.error(error)
@@ -46,10 +41,10 @@ app.use(express.json())
 // }))
 
 // Use routes
-app.use('/api/projects', projects)
-app.use('/api/todos', todos)
-app.use('/api/users', users)
-app.use('/api/auth', auth)
+app.use('/api/projects', require('./routes/api/projects'))
+app.use('/api/todos', require('./routes/api/todos'))
+app.use('/api/users', require('./routes/api/users'))
+app.use('/api/auth', require('./routes/api/auth'))
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
