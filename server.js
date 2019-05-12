@@ -34,9 +34,9 @@ app.use(helmet())
 
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: ["'self'"],
+    defaultSrc: ["'self', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'"],
     fontSrc: ["'self'"],
-    scriptSrc: ["'self'"]
+    scriptSrc: ["'self', 'unsafe-inline', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'"]
   }
 }))
 
