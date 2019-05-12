@@ -1,6 +1,5 @@
     
 {
   "mongoURI": "mongodb+srv://user:sKrief353KeQ@ex2db-7mupt.mongodb.net/MyProject?retryWrites=true",
-  "jwtSecret": "sl_myVeryRandomJwtSecret",
-  "process_env[NODE_ENV]": "production"
+  "jwtSecret": "sl_myVeryRandomJwtSecret"
 }

@@ -2,8 +2,8 @@
   "name": "ka222vq-project",
   "version": "1.0.0",
   "engines": {
-    "node": "10.11.0",
-    "npm": "6.4.1"
+    "node": "10.x",
+    "npm": "6.4.x"
   },
   "description": "Todo application build with the MERN stack",
   "main": "server.js",
@@ -15,7 +15,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "lint": "standard",
     "test": "mocha ./test --recursive --timeout 15000",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false  npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
