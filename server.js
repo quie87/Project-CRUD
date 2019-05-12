@@ -41,10 +41,10 @@ app.use(express.json())
 // }))
 
 // Use routes
-app.use('/api/projects', require('./routes/api/projects'))
-app.use('/api/todos', require('./routes/api/todos'))
-app.use('/api/users', require('./routes/api/users'))
-app.use('/api/auth', require('./routes/api/auth'))
+app.use('/api/projects', require('./route/api/projects'))
+app.use('/api/todos', require('./route/api/todos'))
+app.use('/api/users', require('./route/api/users'))
+app.use('/api/auth', require('./route/api/auth'))
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
