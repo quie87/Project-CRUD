@@ -9,7 +9,8 @@ import {
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
-  REGISTER_FAIL
+  REGISTER_FAIL,
+  CLEAR_ERRORS
 } from './types'
 
 // Check token & load user
@@ -22,6 +23,7 @@ export const loadUser = () => (dispatch, getState) => {
       type: USER_LOADED,
       payload: res.data
     }))
+    .then(dispatch({ type: CLEAR_ERRORS }))
     .catch((err) => {
       dispatch(returnErrors(err.response.data, err.response.status))
       dispatch({
@@ -46,6 +48,7 @@ export const register = ({ name, email, password }) => dispatch => {
       type: REGISTER_SUCCESS,
       payload: res.data
     }))
+    .then(dispatch({ type: CLEAR_ERRORS }))
     .catch(err => {
       dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'))
       dispatch({
@@ -71,6 +74,7 @@ export const login = ({ email, password }) => dispatch => {
         payload: res.data
       })
     })
+    .then(dispatch({ type: CLEAR_ERRORS }))
     .catch(err => {
       dispatch(returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL'))
       dispatch({
