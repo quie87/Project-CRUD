@@ -2,7 +2,7 @@ const express = require('express')
 // const mongoose = require('./config/mongoose.js')
 const mongoose = require('mongoose')
 const config = require('config')
-const helmet = require('helmet')
+// const helmet = require('helmet')
 const path = require('path')
 // require('dotenv').config()
 
@@ -30,15 +30,15 @@ mongoose
 app.use(express.json())
 
 // Put the helmet on
-app.use(helmet())
+// app.use(helmet())
 
-app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: ["'self', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'"],
-    fontSrc: ["'self'"],
-    scriptSrc: ["'self', 'unsafe-inline', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'"]
-  }
-}))
+// app.use(helmet.contentSecurityPolicy({
+//   directives: {
+//     defaultSrc: ["'self', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'"],
+//     fontSrc: ["'self'"],
+//     scriptSrc: ["'self', 'unsafe-inline', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'"]
+//   }
+// }))
 
 // Use routes
 app.use('/api/projects', require('./route/api/projects'))
