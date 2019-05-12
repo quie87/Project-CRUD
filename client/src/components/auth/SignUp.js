@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { register } from '../../actions/authActions'
 import { returnErrors } from '../../actions/errorActions';
 import { REGISTER_FAIL } from '../../actions/types';
+import PropTypes from 'prop-types'
 
 
 class SignUp extends Component {
@@ -71,6 +72,11 @@ class SignUp extends Component {
 			</div>
     )
   }
+}
+
+SignUp.propTypes = {
+  register: PropTypes.func.isRequired,
+  returnErrors: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({

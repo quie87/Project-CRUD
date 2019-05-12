@@ -1,4 +1,4 @@
-import { GET_PROJECTS, ADD_PROJECT, DELETE_PROJECT, ACTIVE_PROJECT, CLEAR_PROJECTS } from './types'
+import { GET_PROJECTS, ADD_PROJECT, DELETE_PROJECT, ACTIVE_PROJECT } from './types'
 import { tokenConfig } from './authActions'
 import { returnErrors } from './errorActions'
 import axios from 'axios'

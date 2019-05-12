@@ -182,3 +182,13 @@ form, .signup {
 .flex-3 {
   flex:1;
 }
+
+/* Media for implementation on smaller screens
+---------------------------------------------------------------------------*/ 
+
+/* @media only screen and (device-width:768px)and (orientation:landscape){
+  .yourstyle{
+
+  }
+
+} */

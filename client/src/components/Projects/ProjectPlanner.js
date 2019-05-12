@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getProjects, deleteProject, isActive } from '../../actions/projectActions'
 import { getTodos, deleteTodo, toggleTodo } from '../../actions/todoActions'
 import { loadUser } from '../../actions/authActions'
+import PropTypes from 'prop-types'
 
 import Projects from './Projects'
 import AddProject from './AddProject'
@@ -17,6 +18,7 @@ class ProjectPlanner extends Component {
   componentDidMount () {
     const { user } = this.props.auth
     this.props.getProjects(user._id)
+    this.props.getTodos(user._id)
   }
   
   onDeleteProject = id => {
@@ -81,6 +83,16 @@ class ProjectPlanner extends Component {
       </div>
     )
   }
+}
+
+ProjectPlanner.propTypes = {
+  getProjects: PropTypes.func.isRequired,
+  deleteProject: PropTypes.func.isRequired,
+  getTodos: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  isActive: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
+  loadUser: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
