@@ -5,7 +5,7 @@ const request = require('supertest')
 const backend = request.agent('http://localhost:5000')
 
 const expect = chai.expect
-const should = chai.should
+// const should = chai.should
 
 let token = null
 let parentName = null
@@ -18,13 +18,13 @@ describe('POST /users', function () {
       .send({
         'name': 'test1',
         'email': 'test1@test.com',
-        'password': '12345'
+        'password': '123456789'
       })
       .set('Accept', 'application/json')
       .end(function (err, res) {
         if (err) throw err
         token = res.body.token
-        userId = res.body.user.id
+        userId = res.body.user._id
         expect(res.status).to.equal(200)
         expect(res.body.user.name).to.equal('test1')
         expect(res.body.user.email).to.equal('test1@test.com')
@@ -39,7 +39,7 @@ describe('POST /auth', function () {
       .post('/api/auth')
       .send({
         'email': 'test1@test.com',
-        'password': '12345' })
+        'password': '123456789' })
       .set('Accept', 'application/json')
       .end(function (err, res) {
         if (err) throw err
@@ -55,7 +55,8 @@ describe('POST /projects', function () {
     backend
       .post('/api/projects')
       .set('x-auth-token', token)
-      .send({ 'name': 'Testar test', 'userId': userId })
+      .send({ 'name': 'Testar test',
+        'userId': userId })
       .set('Accept', 'application/json')
       .end(function (err, res) {
         if (err) throw err
@@ -70,7 +71,7 @@ describe('POST /projects', function () {
 describe('POST /todos', function () {
   it('Should create new todo', function (done) {
     backend
-      .post(`/api/todos`)
+      .post(`/api/todos/create`)
       .set('x-auth-token', token)
       .send({
         'title': 'Testar test test',

@@ -9,6 +9,7 @@ const Todo = require('../../models/Todo')
 router.get('/:parentName', auth, (req, res) => {
   Todo.find({ parentName: req.params.parentName })
     .then(todos => res.json(todos))
+    .catch(() => res.status(404).json({ msg: 'Could not find todoItem' }))
 })
 
 // POST
@@ -22,6 +23,7 @@ router.post('/create', auth, (req, res) => {
   })
 
   newTodo.save().then(todo => res.status(200).json(todo))
+    .catch(() => res.status(404).json({ msg: 'Could not save todoItem to Data base' }))
 })
 
 // POST
@@ -34,10 +36,6 @@ router.post('/update/:id', (req, res) => {
       return todo
     })
     .then(update => update.save())
-    // .then(todo => {
-    //   Todo.updateOne({ _id: req.params._id }, { $set: { completed: todo.completed } })
-    //   return todo
-    // })
     .then(todo => res.json(todo))
     .catch(() => res.status(400).json({ success: false }))
 })
@@ -48,7 +46,7 @@ router.post('/update/:id', (req, res) => {
 router.delete('/:id', auth, (req, res) => {
   Todo.findById(req.params.id)
     .then(todo => todo.remove().then(() => res.json({ success: true })))
-    .catch(() => res.status(404).json({ success: false }))
+    .catch(() => res.status(404).json({ msg: 'Could not delete todoItem from Data base' }))
 })
 
 module.exports = router

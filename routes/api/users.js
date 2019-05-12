@@ -51,11 +51,12 @@ router.post('/', (req, res) => {
                   res.status(200).json({
                     token,
                     user: {
-                      id: user.id,
+                      _id: user._id,
                       name: user.name,
-                      email: user.email
+                      email: user.email,
+                      register_date: user.register_date
                     }
-                  })
+                  }).catch(() => res.status(400).json({ success: res.message }))
                 }
               )
             })

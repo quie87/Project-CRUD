@@ -22,7 +22,7 @@ router.post('/', auth, (req, res) => {
   })
 
   newProject.save().then(project => res.status(200).json(project))
-    .catch(() => res.status(404).json({ success: false }))
+    .catch(() => res.status(404).json({ msg: 'Could not add project to Data base' }))
 })
 
 // POST
@@ -31,7 +31,7 @@ router.post('/', auth, (req, res) => {
 router.delete('/:id', auth, (req, res) => {
   Project.findById(req.params.id)
     .then(project => project.remove().then(() => res.json({ succes: true })))
-    .catch(() => res.status(404).json({ success: false }))
+    .catch(() => res.status(404).json({ msg: 'Could not delete project from Data base' }))
 })
 
 module.exports = router
