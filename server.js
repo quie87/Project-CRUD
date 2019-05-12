@@ -7,6 +7,7 @@ const path = require('path')
 // require('dotenv').config()
 
 const app = express()
+process.env.NODE_ENV = 'production'
 
 const projects = require('./routes/api/projects')
 const todos = require('./routes/api/todos')
