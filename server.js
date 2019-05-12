@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const config = require('config')
 // const helmet = require('helmet')
 const path = require('path')
-require('dotenv').config()
+// require('dotenv').config()
 
 const app = express()
 
