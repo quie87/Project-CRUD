@@ -101,6 +101,13 @@ p {
   cursor: pointer;
 }
 
+button.project-btn:active {
+  background-color: transparent !important;
+}
+button.project-btn:focus {
+  background-color: transparent !important;
+}
+
 button:link {
   background-color: #eee;
 }
