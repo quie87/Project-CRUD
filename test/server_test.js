@@ -5,11 +5,13 @@ const request = require('supertest')
 const backend = request.agent('http://localhost:5000')
 
 const expect = chai.expect
-// const should = chai.should
+const should = chai.should()
 
 let token = null
 let parentName = null
 let userId = null
+let todoId = null
+let projectID = null
 
 describe('POST /users', function () {
   it('should register user and return user', function (done) {
@@ -61,6 +63,7 @@ describe('POST /projects', function () {
       .end(function (err, res) {
         if (err) throw err
         parentName = res.body.name
+        projectID = res.body._id
         expect(res.status).to.equal(200)
         expect(res.body.name).to.equal('Testar test')
         done()
@@ -81,9 +84,43 @@ describe('POST /todos', function () {
       .set('Accept', 'application/json')
       .end(function (err, res) {
         if (err) throw err
+        todoId = res.body._id
         expect(res.status).to.equal(200)
         expect(res.body.title).to.equal('Testar test test')
         done()
       })
   })
 })
+
+describe('POST, delete todo, /todo/:id', function () {
+  it('should delete selected todo', function (done) {
+    backend
+      .delete(`/api/todos/${todoId}`)
+      .set('x-auth-token', token)
+      .set('Accept', 'application/json')
+      .end(function (err, res) {
+        if (err) throw err
+        res.body.should.be.a('object')
+        res.body.should.have.property('success').equal(true)
+        expect(res.status).to.equal(200)
+        done()
+      })
+  })
+})
+
+describe('POST, delete project, /projects/:id', function () {
+  it('should delete selected project', function (done) {
+    backend
+      .delete(`/api/projects/${projectID}`)
+      .set('x-auth-token', token)
+      .set('Accept', 'application/json')
+      .end(function (err, res) {
+        if (err) throw err
+        res.body.should.be.a('object')
+        res.body.should.have.property('success').equal(true)
+        expect(res.status).to.equal(200)
+        done()
+      })
+  })
+})
+// "msg":"Could not delete todoItem from Data base"

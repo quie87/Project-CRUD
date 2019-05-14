@@ -30,7 +30,7 @@ router.post('/', auth, (req, res) => {
 // @Private
 router.delete('/:id', auth, (req, res) => {
   Project.findById(req.params.id)
-    .then(project => project.remove().then(() => res.json({ succes: true })))
+    .then(project => project.remove().then(() => res.json({ success: true })))
     .catch(() => res.status(404).json({ msg: 'Could not delete project from Data base' }))
 })
 
