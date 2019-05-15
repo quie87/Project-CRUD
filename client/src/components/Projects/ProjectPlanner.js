@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getProjects, deleteProject, isActive } from '../../actions/projectActions'
-import { getTodos, deleteTodo, toggleTodo } from '../../actions/todoActions'
+import { getTodos, deleteTodo, toggleTodo, deleteTodos } from '../../actions/todoActions'
 import { loadUser } from '../../actions/authActions'
 import PropTypes from 'prop-types'
 
@@ -21,7 +21,8 @@ class ProjectPlanner extends Component {
     this.props.getTodos(user._id)
   }
   
-  onDeleteProject = id => {
+  onDeleteProject = (id, name) => {
+    this.props.deleteTodos(name)
     this.props.deleteProject(id)
   }
 
@@ -92,7 +93,8 @@ ProjectPlanner.propTypes = {
   deleteTodo: PropTypes.func.isRequired,
   isActive: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,
-  loadUser: PropTypes.func.isRequired
+  loadUser: PropTypes.func.isRequired,
+  deleteTodos: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -102,5 +104,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, { 
-  getProjects, deleteProject, getTodos, deleteTodo, isActive, toggleTodo, loadUser
+  getProjects, deleteProject, getTodos, deleteTodo, isActive, toggleTodo, loadUser, deleteTodos
 })(ProjectPlanner)

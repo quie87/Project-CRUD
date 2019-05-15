@@ -43,8 +43,8 @@ router.post('/update/:id', (req, res) => {
 // delete
 // delete all todos that belongs to given project
 // @Private
-router.delete('/all', auth, (req, res) => {
-  const items = req.body.parentName
+router.delete('/:parentName', auth, (req, res) => {
+  const items = req.params.parentName
   const query = { 'parentName': items }
 
   Todo.deleteMany(query)

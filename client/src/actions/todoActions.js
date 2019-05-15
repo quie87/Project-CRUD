@@ -1,4 +1,4 @@
-import { GET_TODOS, ADD_TODO, DELETE_TODO } from './types'
+import { GET_TODOS, ADD_TODO, DELETE_TODO, DELETE_TODOS } from './types'
 import { tokenConfig } from './authActions'
 import { returnErrors } from './errorActions'
 import axios from 'axios'
@@ -34,6 +34,19 @@ export const deleteTodo = id => (dispatch, getState) => {
       dispatch({
         type: DELETE_TODO,
         payload: id
+      }))
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    )
+}
+
+export const deleteTodos = parentName => (dispatch, getState) => {
+  axios
+    .delete(`api/todos/${parentName}`, tokenConfig(getState))
+    .then(res =>
+      dispatch({
+        type: DELETE_TODOS,
+        payload: parentName
       }))
     .catch(err =>
       dispatch(returnErrors(err.response.data, err.response.status))
