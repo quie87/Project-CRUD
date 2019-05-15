@@ -40,7 +40,22 @@ router.post('/update/:id', (req, res) => {
     .catch(() => res.status(400).json({ success: false }))
 })
 
-// POST
+// delete
+// delete all todos that belongs to given project
+// @Private
+router.delete('/all', auth, (req, res) => {
+  const items = req.body.parentName
+  const query = { 'parentName': items }
+
+  Todo.deleteMany(query)
+    .then(() => res.json({ success: true }))
+    .catch(err => {
+      console.log('Error')
+      console.log(err)
+    })
+})
+
+// Delete
 // delete an Todo
 // @Private
 router.delete('/:id', auth, (req, res) => {
