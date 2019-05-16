@@ -18,7 +18,6 @@ class ProjectPlanner extends Component {
   componentDidMount () {
     const { user } = this.props.auth
     this.props.getProjects(user._id)
-    this.props.getTodos(user._id)
   }
   
   onDeleteProject = (id, name) => {
