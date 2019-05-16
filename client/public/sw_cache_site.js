@@ -1,7 +1,7 @@
 const cacheName = 'v1'
 
 const urlsToPrefetch = [
-  '/build'
+  '/build/'
 ]
 // Call install event
 self.addEventListener('install', (e) => {
@@ -54,18 +54,18 @@ self.addEventListener('activate', (e) => {
 //   )
 // })
 
-// self.addEventListener('fetch', event => {
-//   console.log('service worker: fetching...')
-//   event.respondWith(
-//     caches.open(cacheName)
-//       .then(cache => {
-//         return cache.match(event.request).then(cacheResponse => {
-//           const fetchPromise = fetch(event.request).then(networkResponse => {
-//             cache.put(event.request, networkResponse.clone())
-//             return networkResponse
-//           }).catch(() => console.log('You are offline, serving cached content'))
-//           return cacheResponse || fetchPromise
-//         }).catch(err => console.log('You are offline so therefor new content could not be fetched' + err))
-//       }).catch(() => console.log('You are offline, serving cached content'))
-//   )
-// })
+self.addEventListener('fetch', event => {
+  console.log('service worker: fetching...')
+  event.respondWith(
+    caches.open(cacheName)
+      .then(cache => {
+        return cache.match(event.request).then(cacheResponse => {
+          const fetchPromise = fetch(event.request).then(networkResponse => {
+            cache.put(event.request, networkResponse.clone())
+            return networkResponse
+          }).catch(() => console.log('You are offline, serving cached content'))
+          return cacheResponse || fetchPromise
+        }).catch(err => console.log('You are offline so therefor new content could not be fetched' + err))
+      }).catch(() => console.log('You are offline, serving cached content'))
+  )
+})
