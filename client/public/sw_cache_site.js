@@ -1,7 +1,9 @@
 const cacheName = 'v1'
 
 const urlsToPrefetch = [
-  '/build/'
+  '/build',
+  '/static/*',
+  '/ajax/libs/*'
 ]
 // Call install event
 self.addEventListener('install', (e) => {
@@ -56,6 +58,9 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', event => {
   console.log('service worker: fetching...')
+
+  if (event.request.method !== 'GET') return
+
   event.respondWith(
     caches.open(cacheName)
       .then(cache => {
@@ -63,9 +68,9 @@ self.addEventListener('fetch', event => {
           const fetchPromise = fetch(event.request).then(networkResponse => {
             cache.put(event.request, networkResponse.clone())
             return networkResponse
-          }).catch(() => console.log('You are offline, serving cached content'))
+          })
           return cacheResponse || fetchPromise
-        }).catch(err => console.log('You are offline so therefor new content could not be fetched' + err))
+        })
       }).catch(() => console.log('You are offline, serving cached content'))
   )
 })
