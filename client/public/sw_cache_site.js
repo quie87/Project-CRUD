@@ -1,34 +1,26 @@
-const cacheName = 'v2'
+const cacheName = 'v1'
 
+const urlsToPrefetch = [
+  '/build'
+]
 // Call install event
 self.addEventListener('install', (e) => {
   console.log('Service Worker: Installed')
 
-  //   var urlsToPrefetch = [
-  //     './static/pre_fetched.txt',
-  //     './static/pre_fetched.html',
-  //     'https://www.chromium.org/_/rsrc/1302286216006/config/customLogo.gif'
-  //   ]
-
-  // console.log('Handling install event. Resources to pre-fetch:', urlsToPrefetch)
-
-  // event.waitUntil(
-  //   caches.open(cacheName).then(cache => {
-  //     cache.addAll(urlsToPrefetch.map(function (urlToPrefetch) {
-  //       return new Request(urlToPrefetch, { mode: 'no-cors' })
-  //     })).then(function () {
-  //       console.log('All resources have been fetched and cached.')
-  //     })
-  //   }).catch(function (error) {
-  //     console.error('Pre-fetching failed:', error)
-  //   })
-  // )
+  e.waitUntil(
+    caches
+      .open(cacheName)
+      .then(cache => {
+        console.log('Service worker caching files')
+        cache.add(urlsToPrefetch)
+      })
+      .then(() => self.skipWaiting())
+  )
 })
 
 // Call activate event
 self.addEventListener('activate', (e) => {
   console.log('Service Worker: Activated')
-
   // Remove unwanted caches
   e.waitUntil(
     caches.keys().then(cacheNames => {
@@ -62,18 +54,18 @@ self.addEventListener('activate', (e) => {
 //   )
 // })
 
-self.addEventListener('fetch', event => {
-  console.log('service worker: fetching...')
-  event.respondWith(
-    caches.open(cacheName)
-      .then(cache => {
-        return cache.match(event.request).then(cacheResponse => {
-          const fetchPromise = fetch(event.request).then(networkResponse => {
-            cache.put(event.request, networkResponse.clone())
-            return networkResponse
-          })
-          return cacheResponse || fetchPromise
-        })
-      }).catch(err => console.log('You are offline so therefor new content could not be fetched' + err))
-  )
-})
+// self.addEventListener('fetch', event => {
+//   console.log('service worker: fetching...')
+//   event.respondWith(
+//     caches.open(cacheName)
+//       .then(cache => {
+//         return cache.match(event.request).then(cacheResponse => {
+//           const fetchPromise = fetch(event.request).then(networkResponse => {
+//             cache.put(event.request, networkResponse.clone())
+//             return networkResponse
+//           }).catch(() => console.log('You are offline, serving cached content'))
+//           return cacheResponse || fetchPromise
+//         }).catch(err => console.log('You are offline so therefor new content could not be fetched' + err))
+//       }).catch(() => console.log('You are offline, serving cached content'))
+//   )
+// })
