@@ -35,7 +35,7 @@ self.addEventListener('fetch', event => {
           const fetchPromise = fetch(event.request).then(networkResponse => {
             cache.put(event.request, networkResponse.clone())
             return networkResponse
-          })
+          }).catch(() => console.log('You are offline, serving cached content, will update when you get connection'))
           return cacheResponse || fetchPromise
         })
       }).catch(() => console.log('You are offline, serving cached content'))
