@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
@@ -9,9 +9,13 @@ class Navbar extends Component {
   render () {
     const { isAuthenticated } = this.props.auth
     return (
-      <Navbars brand={<NavLink to='/'>Project Planner</NavLink>} alignLinks='right' className='Navbar #ff7043 deep-orange lighten-1' >
+      <Navbars brand={<Link to='/'>Project Planner</Link>} alignLinks='right' className='Navbar #ff7043 deep-orange lighten-1' >
         { isAuthenticated ? <SignedInLinks /> : <SignedOutLinks />}
       </Navbars>
+      // <Navbars brand={<Link to='/'>Project Planner</Link>} alignLinks='right' className='Navbar #ff7043 deep-orange lighten-1'>
+      //   <Link to='/signUp'>signUp</Link>
+      //   <Link to='/signIn'>signIp</Link>
+      // </Navbars>
     )
   }
 }

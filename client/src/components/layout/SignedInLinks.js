@@ -7,9 +7,7 @@ import PropTypes from 'prop-types'
 class Logout extends Component {
   render () {
     return (
-      <ul>
-        <li><NavLink onClick={this.props.logout} to='/'>Log out</NavLink></li>
-      </ul>
+      <NavLink to='#' onClick={this.props.logout}>Log out</NavLink>
     )
   }
 }
