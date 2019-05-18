@@ -26,4 +26,4 @@ function register () {
   }
 }
 
-register()
+// register()

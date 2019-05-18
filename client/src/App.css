@@ -32,6 +32,15 @@ body {
   padding-right: 50px;
 }
 
+/* Navbar alt
+---------------------------------------*/
+.Navbar {
+  height: 5em;
+  margin-bottom: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 /* Layout for logged in user
 -----------------------------------------*/
 .projects {
@@ -151,6 +160,14 @@ form, .signup {
   margin: 0 auto;
 }
 
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-color:rgb(255,112,67);
+  box-shadow: none;
+}
+
 /* ul, ui, li 
 ------------------------------------------------*/
 .todolist li {
@@ -200,12 +217,4 @@ form, .signup {
 
 } */
 
-/* Style for forms 
------------------------------------------------------------------------------*/
-input[type=text]:not(.browser-default):focus:not([readonly]),
-input[type=email]:not(.browser-default):focus:not([readonly]),
-input[type=password]:not(.browser-default):focus:not([readonly]),
-textarea.materialize-textarea:focus:not([readonly]) {
-  border-color:rgb(255,112,67);
-  box-shadow: none;
-}
+

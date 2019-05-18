@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { loadUser } from './actions/authActions'
 
-import Navbar from './components/layout/Navbar'
+import Header from './components/layout/Header'
 import Dashboard from './components/dashboard/Dashboard'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
@@ -19,10 +19,10 @@ class App extends Component {
       <BrowserRouter>
         <div className='App'>
           <div className='container'>
-            <Navbar />
+            <Header />
             <Switch>
               <Route exact path='/' component={Dashboard} />
-              <Route path='/signin' component={SignIn} />
+              <Route path='/signIn' component={SignIn} />
               <Route path='/signUp' component={SignUp} />
             </Switch>
           </div>
