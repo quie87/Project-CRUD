@@ -18,8 +18,8 @@ body {
 }
 
 .container {
-  width: 100%;
-  max-width: inherit;
+  width: 100% !important;
+  max-width: none !important;
   margin: 0 auto;
 }
 
@@ -35,6 +35,7 @@ body {
 /* Navbar alt
 ---------------------------------------*/
 .Navbar {
+  width: 100%;
   height: 5em;
   margin-bottom: 40px;
   padding-left: 50px;
@@ -217,4 +218,27 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 } */
 
+/* @media only screen and (min-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 100%;
+  }
+} */
+
+@media only screen and (max-width: 993px) {
+
+  .landing-img {
+    display: none;
+  }
+
+}
 

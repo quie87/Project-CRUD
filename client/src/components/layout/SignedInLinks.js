@@ -11,8 +11,8 @@ class Logout extends Component {
       // <ul>
       //   <NavLink to='#' onClick={this.props.logout}>Log out</NavLink>
       // </ul>
-      <ul>
-        <NavItem href='/' onClick={this.props.logout}>Log out</NavItem>
+      <ul className='left'>
+        <li><NavItem href='/' onClick={this.props.logout}>Log out</NavItem></li>
       </ul>
     )
   }
