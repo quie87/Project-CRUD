@@ -4,6 +4,7 @@ import { register } from '../../actions/authActions'
 import { returnErrors } from '../../actions/errorActions';
 import { REGISTER_FAIL } from '../../actions/types';
 import PropTypes from 'prop-types'
+import Notification from '../func_comp/Notifications'
 
 
 class SignUp extends Component {
@@ -19,7 +20,7 @@ class SignUp extends Component {
 		if (error !== prevProps.error) {
 			//Check for register error
 			if (error.id === 'REGISTER_FAIL') {
-				this.setState({ msg: error.msg.msg })
+				this.setState({ msg: error.msg })
 			} else {
 				this.setState({ msg: null })
 			}
@@ -53,8 +54,9 @@ class SignUp extends Component {
   render () {
     return (
       <div className='innerWrapper'>
+				<h4 className='center'>Signup</h4>
 				<form onSubmit={this.handleSubmit} >
-					<h5>Signup</h5>
+					<Notification notification={this.state}/>
 					<div>
 						<label>Name</label>
 						<input onChange={this.handleChange} type='text' name='name' id='name' placeholder='Name...' required/>

@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { login } from '../../actions/authActions'
+import Notification from '../func_comp/Notifications'
 
 class SignIn extends Component {
 	state = {
 		email: '',
-		password: ''
+		password: '',
+		msg: null
 	}
 
 	static propTypes = {
@@ -44,15 +46,15 @@ class SignIn extends Component {
 			password
 		}
 
-		// Attemt to login user
 		this.props.login(user)
 	}
 
   render () {
     return (
       <div className='innerWrapper'>
+				<h4 className='center'>Sign In</h4>
 				<form onSubmit={this.handleSubmit} >
-					<h5>Sign In</h5>
+				<Notification notification={this.state}/>
 					<div>
 						<label>Email</label>
 						<input onChange={this.handleChange} type='email' name='email' id='email' placeholder='Email...' required />

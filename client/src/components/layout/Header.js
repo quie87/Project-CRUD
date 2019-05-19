@@ -5,6 +5,7 @@ import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 import { Navbar } from 'react-materialize'
 import M from 'materialize-css'
+import 'materialize-css/dist/css/materialize.min.css'
 
 class Header extends Component {
   render () {

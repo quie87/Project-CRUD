@@ -118,6 +118,15 @@ button.project-btn:focus {
   background-color: transparent !important;
 }
 
+button.standard-btn:active {
+  background-color:  rgb(255,112,67);
+  opacity: 0.7;
+}
+button.standard-btn:focus {
+  background-color:  rgb(255,112,67);
+  opacity: 0.7;
+}
+
 button:link {
   background-color: #eee;
 }
@@ -153,12 +162,13 @@ button:link {
 
 /* Forms
 --------------------------------------------------*/
-form, .signup {
-  max-width: 400px;
+form {
+  max-width: 450px;
   min-width: 200px;
   font-size: 18px;
   font-weight: 700;
   margin: 0 auto;
+  margin-top: 5rem;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
@@ -206,6 +216,18 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 .flex-3 {
   flex:1;
+}
+
+/* Notifications
+---------------------------------------------------------------------------*/
+
+.notifications {
+  padding: 0 !important;
+  border: none;
+}
+
+.notifications .card-panel {
+  padding: 0.5em;
 }
 
 /* Media for implementation on smaller screens
