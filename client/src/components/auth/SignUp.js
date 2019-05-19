@@ -54,11 +54,6 @@ class SignUp extends Component {
 		} else {
 			this.props.register(newUser)
 		}
-		// if (password.length < 8) {
-		// 	this.props.returnErrors('Pls enter a password longer then 8 characters', 400, REGISTER_FAIL)
-		// } else {
-		// 	this.props.register(newUser)
-		// }
 	}
 
   render () {
