@@ -16,7 +16,7 @@ class SignUp extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		const { error } = this.props
+		const { error, isAuthenticated } = this.props
 		if (error !== prevProps.error) {
 			//Check for register error
 			if (error.id === 'REGISTER_FAIL') {
@@ -24,6 +24,9 @@ class SignUp extends Component {
 			} else {
 				this.setState({ msg: null })
 			}
+		}
+		if(isAuthenticated) {
+			this.props.history.push('/')
 		}
 	}
 
@@ -44,11 +47,18 @@ class SignUp extends Component {
 		}
 
 		// Attemt to register
-		if (password.length < 8) {
-			this.props.returnErrors('Pls enter a password longer then 8 characters', 400, REGISTER_FAIL)
+		let regExp = /^(?=.*\d).{8,20}$/
+
+		if (!regExp.test(password)) {
+			this.props.returnErrors('Password to weak: Atleast 8 digits long and include at least one numeric digit.', 400, REGISTER_FAIL)
 		} else {
 			this.props.register(newUser)
 		}
+		// if (password.length < 8) {
+		// 	this.props.returnErrors('Pls enter a password longer then 8 characters', 400, REGISTER_FAIL)
+		// } else {
+		// 	this.props.register(newUser)
+		// }
 	}
 
   render () {
