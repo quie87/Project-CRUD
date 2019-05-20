@@ -41,21 +41,3 @@ self.addEventListener('fetch', event => {
       }).catch(() => console.log('You are offline, serving cached content'))
   )
 })
-
-// Call fetch event
-// self.addEventListener('fetch', e => {
-//   console.log('service worker: fetching...')
-
-//   e.respondWith(
-//     fetch(e.request).then(res => {
-//       const resClone = res.clone()
-//       caches.open(cacheName)
-//         .then(cache => {
-//           // Add response to cache
-//           cache.put(e.request, resClone)
-//         })
-//       return res
-//     })
-//       .catch(() => caches.match(e.request).then(res => res || fetch(e.request)))
-//   )
-// })
