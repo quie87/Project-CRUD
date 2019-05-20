@@ -30,22 +30,20 @@ class LandingPage extends Component {
               </p>
             </div>
             <div className='box2 col s12 m6 l6'>
-              <p>
-                <ul>
-                  <li>
+              <ul>
+                <li>
                     Easy overview of your projects and tasks
-                  </li>
-                  <li>
+                </li>
+                <li>
                     Can be used on desktops, tablets and phones
-                  </li>
-                  <li>
+                </li>
+                <li>
                     You can navigate thrue your projects, even when offline!
-                  </li>
-                  <li>
+                </li>
+                <li>
                     Possible to shortcut icon on your phone or tablet
-                  </li>
-                </ul>
-              </p>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
