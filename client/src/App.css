@@ -88,8 +88,8 @@ p {
 	padding: 5px;
 	font-weight: 500;
 	text-align: center;
-  cursor: pointer;
-  max-width: 400px;
+	cursor: pointer;
+	max-width: 350px;
 }
 
 .remove-btn {
@@ -172,7 +172,14 @@ form {
   font-size: 18px;
   font-weight: 700;
   margin: 0 auto;
-  margin-top: 5rem;
+}
+
+.signup {
+	margin-bottom: 3.5rem;
+}
+
+.signin {
+	margin-bottom: 3.5rem;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
