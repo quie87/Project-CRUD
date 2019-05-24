@@ -7,7 +7,7 @@ const Notification = props => {
       { props.notification.msg
         ? <Row>
           <Col s={12} m={12} l={12} className=' notifications'>
-            <CardPanel className='#ff7043 deep-orange lighten-1'>
+            <CardPanel className='notifications-warning'>
               <span className='white-text'>
                 { props.notification.msg }
               </span>

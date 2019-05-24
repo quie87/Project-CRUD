@@ -4,7 +4,7 @@ import App from './App'
 
 import { Provider } from 'react-redux'
 import store from './store'
-// import * as serviceWorker from './serviceWorker'
+import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -12,9 +12,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'))
 
-// serviceWorker.register()
+serviceWorker.register()
 
-// funkar typ
 function register () {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -26,4 +25,4 @@ function register () {
   }
 }
 
-// register()
+register()
