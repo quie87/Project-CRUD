@@ -1,21 +1,13 @@
 const express = require('express')
-// const mongoose = require('./config/mongoose.js')
 const mongoose = require('mongoose')
 const config = require('config')
 const helmet = require('helmet')
 const path = require('path')
-// require('dotenv').config()
 
 const app = express()
 
-// Connect to MongoDB
-// mongoose.run().catch(error => {
-//   console.error(error)
-//   process.exit(1)
-// })
-
 // DB Config
-const db = config.get('mongoURI')
+let db = config.get('mongoURI')
 
 // Connect to Mongo
 mongoose

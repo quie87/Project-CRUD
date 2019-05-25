@@ -174,4 +174,3 @@ describe('POST, delete project, /projects/:id', function () {
       })
   })
 })
-// "msg":"Could not delete todoItem from Data base"
