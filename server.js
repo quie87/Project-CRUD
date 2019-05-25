@@ -35,8 +35,8 @@ app.use(helmet())
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-    fontSrc: ["'self'", 'cdnjs.cloadflare.com', 'fonts.googleapis.com', 'fonts.gstatic.com'],
-    styleSrc: ["'self'", "'unsafe-inline'", 'cdnjs.cloadflare.com', 'fonts.googleapis.com'],
+    fontSrc: ["'self'", 'cdnjs.cloudflare.com', 'fonts.googleapis.com', 'fonts.gstatic.com'],
+    styleSrc: ["'self'", "'unsafe-inline'", 'cdnjs.cloudflare.com', 'fonts.googleapis.com'],
     scriptSrc: ["'self'", "'unsafe-inline'", 'cdnjs.cloudflare.com']
   }
 }))
