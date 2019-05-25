@@ -35,7 +35,7 @@ app.use(helmet())
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-    fontSrc: ["'self'", 'cdnjs.cloadflare.com', 'https://fonts.googleapis.com'],
+    fontSrc: ["'self'", 'cdnjs.cloadflare.com', 'https://fonts.googleapis.com', 'https://fonts.gstatic.com/s/materialicons'],
     styleSrc: ["'self'", "'unsafe-inline'", 'cdnjs.cloadflare.com', 'https://fonts.googleapis.com/icon?family=Material+Icons'],
     scriptSrc: ["'self'", "'unsafe-inline'", 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js']
   }
