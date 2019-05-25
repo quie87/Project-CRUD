@@ -49,10 +49,7 @@ router.delete('/:parentName', auth, (req, res) => {
 
   Todo.deleteMany(query)
     .then(() => res.json({ success: true }))
-    .catch(err => {
-      console.log('Error')
-      console.log(err)
-    })
+    .catch(() => res.status(400).json({ success: false }))
 })
 
 // Delete

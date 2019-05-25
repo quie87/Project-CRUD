@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
     return res.status(400).json({ msg: 'Pls enter all fields' })
   }
 
-  if (password.length < 8) {
+  if (password.length < 9) {
     return res.status(400).json({ msg: 'Pls enter a password that is longer then 8 characters' })
   }
 

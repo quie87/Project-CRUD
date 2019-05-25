@@ -13,8 +13,34 @@ let userId = null
 let todoId = null
 let projectID = null
 
-describe('POST /users', function () {
-  it('should register user and return user', function (done) {
+describe('POST, register /users', function () {
+  it('Should respond with status 400 if not all fields are filled', done => {
+    backend
+      .post('/api/users', {})
+      .end(function (err, res) {
+        if (err) throw err
+        expect(res.status).to.equal(400)
+        done()
+      })
+  })
+
+  it('Should respond with status 400 if password length is less then or equal to 8', done => {
+    backend
+      .post('/api/users')
+      .send({
+        'name': 'test1',
+        'email': 'test1@test.com',
+        'password': '123456'
+      })
+      .end(function (err, res) {
+        if (err) throw err
+        expect(res.status).to.equal(400)
+        expect(res.body.msg).to.equal('Pls enter a password that is longer then 8 characters')
+        done()
+      })
+  })
+
+  it('should add user to database and return user', function (done) {
     backend
       .post('/api/users')
       .send({
@@ -36,6 +62,31 @@ describe('POST /users', function () {
 })
 
 describe('POST /auth', function () {
+  it('Should fail if not all fields are filled', done => {
+    backend
+      .post('/api/auth', {})
+      .end(function (err, res) {
+        if (err) throw err
+        expect(res.status).to.equal(400)
+        expect(res.body.msg).to.equal('Pls enter all fields')
+        done()
+      })
+  })
+  it('Should fail if email or password is incorrect', done => {
+    backend
+      .post('/api/auth')
+      .send({
+        'email': 'test1@test.com',
+        'password': '123456test'
+      })
+      .end(function (err, res) {
+        if (err) throw err
+        expect(res.status).to.equal(400)
+        expect(res.body.msg).to.equal('Wrong email or password')
+        done()
+      })
+  })
+
   it('should auth user', function (done) {
     backend
       .post('/api/auth')
