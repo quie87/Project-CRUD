@@ -26,7 +26,7 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', event => {
   console.log('service worker: fetching...')
 
-  if (event.request.method !== 'GET') return
+  //   if (event.request.method !== 'GET') return
 
   event.respondWith(
     caches.open(cacheName)
