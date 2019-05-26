@@ -40,13 +40,13 @@ export const deleteTodo = id => (dispatch, getState) => {
     )
 }
 
-export const deleteTodos = parentName => (dispatch, getState) => {
+export const deleteTodos = name => (dispatch, getState) => {
   axios
-    .delete(`api/todos/${parentName}`, tokenConfig(getState))
+    .delete(`api/todos/all/${name}`, tokenConfig(getState))
     .then(res =>
       dispatch({
         type: DELETE_TODOS,
-        payload: parentName
+        payload: name
       }))
     .catch(err =>
       dispatch(returnErrors(err.response.data, err.response.status))
