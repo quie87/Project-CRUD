@@ -63,7 +63,7 @@ class ProjectPlanner extends Component {
 
         <div className="col s12 m6 l8">
           <div className='todo'>
-          <h3 className='center'>Your Todos</h3>
+          <h3 className='center'>Your Tasks</h3>
           { this.state.showTodos ?
             <div>
               <AddTodo />
@@ -73,7 +73,7 @@ class ProjectPlanner extends Component {
             </div>
               :
             <div className='center' >
-              <h5>Select a project to add new todos to it <br /> 
+              <h5>Select a project to add new task to it <br /> 
               Or add a new project
               </h5>
             </div> 
