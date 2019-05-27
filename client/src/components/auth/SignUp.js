@@ -59,8 +59,8 @@ class SignUp extends Component {
   render () {
     return (
       <div className='innerWrapper'>
-				<h4 className='center signup'>Signup</h4>
 				<form onSubmit={this.handleSubmit} >
+				<h4 className='signup'>Sign up</h4>
 					<Notification notification={this.state}/>
 					<div>
 						<label>Name</label>

@@ -52,8 +52,8 @@ class SignIn extends Component {
   render () {
     return (
       <div className='innerWrapper'>
-				<h4 className='center signin'>Sign In</h4>
 				<form onSubmit={this.handleSubmit} >
+				<h4 className='signin'>Sign In</h4>
 				<Notification notification={this.state}/>
 					<div>
 						<label>Email</label>
