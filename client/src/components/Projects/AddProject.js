@@ -31,15 +31,15 @@ export class AddProject extends Component {
           <button href="#modal" className="modal-trigger standard-btn">
             Add New Project   
           </button>
-          <Modal id="modal" header="Name your project">
+          	<Modal id="modal">
             <form onSubmit={this.onSubmit}>
+							<label>Name your project</label>
               <input type='text'
               className='name'
               placeholder='Add project..'
               value={this.state.name}
               onChange={this.onChange}
               />
-          {/* <button href='#modal' type='submit' className='modal-footer' >Add</button> */}
             <div className='modal-footer'>
               <button href='#modal' type='submit' className='waves-effect waves-green btn-flat modal-close'>Add</button>
             </div>
