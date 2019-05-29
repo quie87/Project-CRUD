@@ -206,18 +206,19 @@ textarea.materialize-textarea:focus:not([readonly]) {
   font-weight: 600;
   list-style: none;
   padding: 0.4em;
-  border-radius: 5rem;
-  border: 1px #ccc dotted;
-  box-shadow: 4px 7px 10px 3px rgba(197, 196, 196, .2);
+	border-radius: 5rem;
+	border: 1px dotted #ccc;
+	box-shadow: 4px 7px 10px 3px rgba(212, 211, 211, 0.2);
 }
 
 .projects li {
   margin-bottom: 0.5rem;
   list-style: none;
   padding: 0.4em;
-  border: 1px dotted #ccc;
   border-radius: 5em;
-  background-color: #fafafa;
+	background-color: #fafafa;
+	border: 1px dotted #ccc;
+	box-shadow: 4px 7px 10px 3px rgba(224, 223, 223, 0.2);
 }
 
 /* Landing page layout 
