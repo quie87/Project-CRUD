@@ -29,9 +29,11 @@ self.addEventListener('fetch', e => {
 
   e.respondWith(
     fetch(e.request).then(res => {
+      const resClone = res.clone()
       caches.open(cacheName)
         .then(cache => {
-          cache.put(e.request, res.clone())
+          // Add response to cache
+          cache.put(e.request, resClone)
         })
       return res
     })
