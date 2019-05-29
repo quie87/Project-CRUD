@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const config = require('config')
-// const helmet = require('helmet')
+const helmet = require('helmet')
 const path = require('path')
 
 const app = express()
@@ -22,16 +22,16 @@ mongoose
 app.use(express.json())
 
 // Put the helmet on
-// app.use(helmet())
+app.use(helmet())
 
-// app.use(helmet.contentSecurityPolicy({
-//   directives: {
-//     defaultSrc: ["'self'", 'cdnjs.cloudflare.com'],
-//     fontSrc: ["'self'", 'cdnjs.cloudflare.com', 'fonts.googleapis.com', 'fonts.gstatic.com'],
-//     styleSrc: ["'self'", "'unsafe-inline'", 'cdnjs.cloudflare.com', 'fonts.googleapis.com'],
-//     scriptSrc: ["'self'", "'unsafe-inline'", 'cdnjs.cloudflare.com']
-//   }
-// }))
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'", 'https://cdnjs.cloudflare.com', 'https://fonts.googleapis.com'],
+    fontSrc: ["'self'", 'https://cdnjs.cloudflare.com', 'https://fonts.googleapis.com/icon?family=Material+Icons', 'https://fonts.gstatic.com'],
+    styleSrc: ["'self'", "'unsafe-inline'", 'https://cdnjs.cloudflare.com', 'https://fonts.googleapis.com/icon?family=Material+Icons'],
+    scriptSrc: ["'self'", "'unsafe-inline'", 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js']
+  }
+}))
 
 // Use routes
 app.use('/api/projects', require('./route/api/projects'))
