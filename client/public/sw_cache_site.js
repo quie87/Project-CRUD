@@ -27,7 +27,7 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', e => {
   console.log('service worker: fetching...')
 
-  if (event.request.method !== 'GET') return
+  if (e.request.method !== 'GET') return
 
   e.respondWith(
     fetch(e.request).then(res => {
@@ -42,6 +42,8 @@ self.addEventListener('fetch', e => {
       .catch(() => caches.match(e.request).then(res => res || fetch(e.request)))
   )
 })
+
+// Below is a kodsnippet for "Cache first". It does not yet work as intended so therefor it is disabled at this point.
 
 // self.addEventListener('fetch', event => {
 //   console.log('service worker: fetching...')
