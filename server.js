@@ -33,6 +33,13 @@ app.use(helmet.contentSecurityPolicy({
   }
 }))
 
+// Redirect https
+if (process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https') { res.redirect(`https://${req.header('host')}${req.url}`) } else { next() }
+  })
+}
+
 // Use routes
 app.use('/api/projects', require('./route/api/projects'))
 app.use('/api/todos', require('./route/api/todos'))
