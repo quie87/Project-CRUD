@@ -5,12 +5,12 @@ import { getTodos, deleteTodo, toggleTodo, deleteTodos } from '../../actions/tod
 import { loadUser } from '../../actions/authActions'
 import PropTypes from 'prop-types'
 
-import Projects from './Projects'
-import AddProject from './AddProject'
+import Projects from '../Projects/Projects'
+import AddProject from '../Projects/AddProject'
 import Todos from '../Todos/Todos'
 import AddTodo from '../Todos/AddTodo'
 
-class ProjectPlanner extends Component {
+class Main extends Component {
   state = {
     showTodos: false
   }
@@ -85,7 +85,7 @@ class ProjectPlanner extends Component {
   }
 }
 
-ProjectPlanner.propTypes = {
+Main.propTypes = {
   getProjects: PropTypes.func.isRequired,
   deleteProject: PropTypes.func.isRequired,
   getTodos: PropTypes.func.isRequired,
@@ -104,4 +104,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, { 
   getProjects, deleteProject, getTodos, deleteTodo, isActive, toggleTodo, loadUser, deleteTodos
-})(ProjectPlanner)
+})(Main)

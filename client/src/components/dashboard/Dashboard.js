@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import LandingPage from './LandingPage'
-import ProjectPlanner from '../Projects/ProjectPlanner'
+import LandingPage from '../layout/LandingPage'
+import MainContent from '../layout/MainContent'
 
 class Dashboard extends Component {
   render () {
     const { isAuthenticated } = this.props.auth
-    const auth = isAuthenticated ? <ProjectPlanner /> : <LandingPage />
+    const auth = isAuthenticated ? <MainContent /> : <LandingPage />
     return (
       <div>
         { auth }
