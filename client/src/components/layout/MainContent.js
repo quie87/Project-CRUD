@@ -10,7 +10,7 @@ import AddProject from '../Projects/AddProject'
 import Todos from '../Todos/Todos'
 import AddTodo from '../Todos/AddTodo'
 
-class Main extends Component {
+class MainContent extends Component {
   state = {
     showTodos: false
   }
@@ -85,7 +85,7 @@ class Main extends Component {
   }
 }
 
-Main.propTypes = {
+MainContent.propTypes = {
   getProjects: PropTypes.func.isRequired,
   deleteProject: PropTypes.func.isRequired,
   getTodos: PropTypes.func.isRequired,
@@ -104,4 +104,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, { 
   getProjects, deleteProject, getTodos, deleteTodo, isActive, toggleTodo, loadUser, deleteTodos
-})(Main)
+})(MainContent)
