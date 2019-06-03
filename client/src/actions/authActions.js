@@ -24,8 +24,8 @@ export const loadUser = () => (dispatch, getState) => {
       payload: res.data
     }))
     .then(dispatch({ type: CLEAR_ERRORS }))
-    .catch((err) => {
-      dispatch(returnErrors(err.response.data, err.response.status))
+    .catch(err => {
+      dispatch(returnErrors(err.response.data.msg, err.response.status, 'AUTH_FAIL'))
       dispatch({
         type: AUTH_ERROR
       })
@@ -50,7 +50,7 @@ export const register = ({ name, email, password }) => dispatch => {
     }))
     .then(dispatch({ type: CLEAR_ERRORS }))
     .catch(err => {
-      dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'))
+      dispatch(returnErrors(err.response.data.msg, err.response.status, 'REGISTER_FAIL'))
       dispatch({
         type: REGISTER_FAIL
       })
@@ -76,7 +76,7 @@ export const login = ({ email, password }) => dispatch => {
     })
     .then(dispatch({ type: CLEAR_ERRORS }))
     .catch(err => {
-      dispatch(returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL'))
+      dispatch(returnErrors(err.response.data.msg, err.response.status, 'LOGIN_FAIL'))
       dispatch({
         type: LOGIN_FAIL
       })

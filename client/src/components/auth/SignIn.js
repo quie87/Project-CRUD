@@ -11,17 +11,12 @@ class SignIn extends Component {
 		msg: null
 	}
 
-	static propTypes = {
-		isAuthenticated: PropTypes.bool,
-		login: PropTypes.func.isRequired
-	}
-
 	componentDidUpdate(prevProps) {
 		const { error, isAuthenticated } = this.props
 		if (error !== prevProps.error) {
 			//Check for register error
 			if (error.id === 'LOGIN_FAIL') {
-				this.setState({ msg: error.msg.msg })
+				this.setState({ msg: error.msg })
 			} else {
 				this.setState({ msg: null })
 			}
@@ -54,7 +49,7 @@ class SignIn extends Component {
       <div className='innerWrapper'>
 				<form onSubmit={this.handleSubmit} >
 				<h4 className='signin'>Sign In</h4>
-				<Notification notification={this.state}/>
+				{this.state.msg ? <Notification /> : null }
 					<div>
 						<label>Email</label>
 						<input onChange={this.handleChange} type='email' name='email' id='email' placeholder='Email...' required />
@@ -68,6 +63,12 @@ class SignIn extends Component {
 			</div>
     )
   }
+}
+
+SignIn.propTypes = {
+	isAuthenticated: PropTypes.bool,
+	login: PropTypes.func.isRequired,
+	error: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({

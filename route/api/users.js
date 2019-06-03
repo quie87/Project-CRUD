@@ -18,13 +18,13 @@ router.post('/', (req, res) => {
   }
 
   if (password.length < 9) {
-    return res.status(400).json({ msg: 'Pls enter a password that is longer then 8 characters' })
+    return res.status(400).json({ msg: 'Password to weak: Enter a password 8 digits long and include at least one numeric digit.' })
   }
 
   // Check for existing user
   User.findOne({ email })
     .then(user => {
-      if (user) return res.status(400).json({ msg: 'Bad request' })
+      if (user) return res.status(400).json({ msg: 'User already exists' })
 
       const newUser = new User({
         name,

@@ -19,7 +19,7 @@ class SignUp extends Component {
 		const { error, isAuthenticated } = this.props
 		if (error !== prevProps.error) {
 			//Check for register error
-			if (error.id === 'REGISTER_FAIL') {
+			if (error.status === 400) {
 				this.setState({ msg: error.msg })
 			} else {
 				this.setState({ msg: null })
@@ -50,7 +50,7 @@ class SignUp extends Component {
 		let regExp = /^(?=.*\d).{8,20}$/
 
 		if (!regExp.test(password)) {
-			this.props.returnErrors('Password to weak: Atleast 8 digits long and include at least one numeric digit.', 400, REGISTER_FAIL)
+			this.props.returnErrors('Password to weak: Enter a password 8 digits long and include at least one numeric digit.', 400, REGISTER_FAIL)
 		} else {
 			this.props.register(newUser)
 		}
@@ -61,7 +61,7 @@ class SignUp extends Component {
       <div className='innerWrapper'>
 				<form onSubmit={this.handleSubmit} >
 				<h4 className='signup'>Sign up</h4>
-					<Notification notification={this.state}/>
+					{this.state.msg ? <Notification /> : null }
 					<div>
 						<label>Name</label>
 						<input onChange={this.handleChange} type='text' name='name' id='name' placeholder='Name...' required/>
@@ -83,7 +83,9 @@ class SignUp extends Component {
 
 SignUp.propTypes = {
   register: PropTypes.func.isRequired,
-  returnErrors: PropTypes.func.isRequired
+	returnErrors: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool,
+	error: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
