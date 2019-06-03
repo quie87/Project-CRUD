@@ -35,7 +35,7 @@ describe('POST, register /users', function () {
       .end(function (err, res) {
         if (err) throw err
         expect(res.status).to.equal(400)
-        expect(res.body.msg).to.equal('Pls enter a password that is longer then 8 characters')
+        expect(res.body.msg).to.equal('Password to weak: Enter a password 8 digits long and include at least one numeric digit.')
         done()
       })
   })
