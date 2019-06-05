@@ -12,14 +12,14 @@ import AddTodo from '../Todos/AddTodo'
 
 class MainContent extends Component {
   state = {
-    showTodos: false
+		showTodos: false
   }
 
   componentDidMount () {
     const { user } = this.props.auth
     this.props.getProjects(user._id)
-  }
-  
+	}
+
   onDeleteProject = (id, name) => {
     this.props.deleteTodos(name)
     this.props.deleteProject(id)
@@ -40,8 +40,8 @@ class MainContent extends Component {
   }
 
   render () {
-    const { projects } = this.props.project
-    const { todos } = this.props.todo
+		const { projects, isActive } = this.props.project
+		const { todos } = this.props.todo
 
     return (
       // Left side
@@ -52,7 +52,7 @@ class MainContent extends Component {
             <div>
               <AddProject />
               <ul className='projectlist'>
-                <Projects projects={projects} onDeleteProject={this.onDeleteProject}
+                <Projects projects={projects} isActive={isActive} onDeleteProject={this.onDeleteProject}
                   getProjectTodos={this.getProjectTodos} />
               </ul>
             </div>  
@@ -90,10 +90,10 @@ MainContent.propTypes = {
   deleteProject: PropTypes.func.isRequired,
   getTodos: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
-  isActive: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,
   loadUser: PropTypes.func.isRequired,
-  deleteTodos: PropTypes.func.isRequired
+  deleteTodos: PropTypes.func.isRequired,
+	isActive: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

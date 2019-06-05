@@ -54,10 +54,10 @@ body {
 
 /* Image
 ----------------------------------------*/
-.landing-img {
+/* .landing-img {
   max-width: 600px; 
   height:auto;
-}
+} */
 
 /* .landing-page-list li {
   list-style: circle !important;
@@ -110,7 +110,6 @@ p {
   background-color: #fafafa;
   font-weight: 700;
   padding: 0.6em;
-  border-left: 0.3em solid rgb(255,112,67);
   cursor: pointer;
 }
 

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 class Projects extends Component {
   render () {
     let projectArr = this.props.projects.map(project => (
-      <ProjectItem key={project._id} project={project} onDeleteProject={this.props.onDeleteProject}
+      <ProjectItem key={project._id} project={project} isActive={this.props.isActive} onDeleteProject={this.props.onDeleteProject}
         getProjectTodos={this.props.getProjectTodos} />
     )).sort(function (a, b) { return Date.a - Date.b })
 
