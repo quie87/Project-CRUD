@@ -1,8 +1,13 @@
 ## Get Stuff Done
 
+## Visit the webapplication here
+getstuffdone.se
+
+## Download and rigths
+It is okej to Clone/download this application for private use. 
+Though your are not permitted to publish this application on your own as our customer runs it live.
 
 ## Most frequently used Scripts
-
 Inside the project directory, in the console, you can run:
 
 ### `npm server`
