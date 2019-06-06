@@ -1,22 +1,28 @@
 const express = require('express')
-const mongoose = require('mongoose')
-const config = require('config')
+// const mongoose = require('mongoose')
+// const config = require('config')
+const mongoose = require('./config/mongoose.js')
 const helmet = require('helmet')
 const path = require('path')
+
+require('dotenv').config()
 
 const app = express()
 
 // DB Config
-let db = config.get('mongoURI')
+// let db = config.get('mongoURI')
 
-// Connect to Mongo
-mongoose
-  .connect(db, {
-    useNewUrlParser: true,
-    useCreateIndex: true
-  }) // Adding new mongo url parser
-  .then(() => console.log('MongoDB Connected...'))
-  .catch(err => console.log(err))
+// Connect to the database.
+mongoose.run()
+
+// // Connect to Mongo
+// mongoose
+//   .connect(db, {
+//     useNewUrlParser: true,
+//     useCreateIndex: true
+//   }) // Adding new mongo url parser
+//   .then(() => console.log('MongoDB Connected...'))
+//   .catch(err => console.log(err))
 
 // Bodyparser middleware
 app.use(express.json())
