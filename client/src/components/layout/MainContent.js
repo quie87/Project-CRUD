@@ -10,6 +10,9 @@ import AddProject from '../Projects/AddProject'
 import Todos from '../Todos/Todos'
 import AddTodo from '../Todos/AddTodo'
 
+/**
+ * Contains the Main content for a logged in user. Shows the users projects/todos and logic needed. 
+ */
 class MainContent extends Component {
   state = {
 		showTodos: false

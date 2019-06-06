@@ -4,6 +4,9 @@ import { logout } from '../../actions/authActions'
 import PropTypes from 'prop-types'
 import { NavItem } from 'react-materialize'
 
+/**
+ * Renders specified link to user that is Logged in
+ */
 class Logout extends Component {
   render () {
     return (

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import SignUp from '../auth/SignUp'
 
+/**
+ * Landing page. Shown if user is not logged in
+ */
 class LandingPage extends Component {
   render () {
     return (

@@ -4,7 +4,8 @@ const auth = require('../../middleware/auth')
 // Todo Model
 const Todo = require('../../models/Todo')
 
-// Get All Todos
+// GET
+// @description Get All Todos beloning to given project
 // Private
 router.get('/:parentName', auth, (req, res) => {
   Todo.find({ parentName: req.params.parentName })
@@ -13,7 +14,7 @@ router.get('/:parentName', auth, (req, res) => {
 })
 
 // POST
-// Create an Todo
+// @description Create an Todo
 // @Private
 router.post('/create', auth, (req, res) => {
   const newTodo = new Todo({
@@ -27,7 +28,7 @@ router.post('/create', auth, (req, res) => {
 })
 
 // POST
-// Toggle todo completed or not
+// @description Toggle todo completed or not
 // @ Public
 router.post('/update/:id', (req, res) => {
   Todo.findById(req.params.id)
@@ -40,8 +41,8 @@ router.post('/update/:id', (req, res) => {
     .catch(() => res.status(400).json({ success: false }))
 })
 
-// delete
-// delete all todos that belongs to given project
+// Delete
+// @description Delete all todos that belongs to given project
 // @Private
 router.delete('/all/:name', auth, (req, res) => {
   const items = req.params.name
@@ -53,7 +54,7 @@ router.delete('/all/:name', auth, (req, res) => {
 })
 
 // Delete
-// delete an Todo
+// @description Delete an Todo
 // @Private
 router.delete('/:id', auth, (req, res) => {
   Todo.findById(req.params.id)

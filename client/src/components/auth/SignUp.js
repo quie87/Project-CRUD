@@ -4,9 +4,11 @@ import { register } from '../../actions/authActions'
 import { returnErrors } from '../../actions/errorActions';
 import { REGISTER_FAIL } from '../../actions/types';
 import PropTypes from 'prop-types'
-import Notification from '../func_comp/Notifications'
+import Notification from '../notifications/Notifications'
 
-
+/**
+ * Component that render a regisitration form
+ */
 class SignUp extends Component {
 	state = {
 		name: '',

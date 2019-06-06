@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
     })
 })
 
-// @rout Get api/auth/user
+// @Rout Get api/auth/user
 // @desciption Get user data but not password
 // Private
 

@@ -4,6 +4,9 @@ import { addProject } from '../../actions/projectActions'
 import PropTypes from 'prop-types'
 import { Modal } from 'react-materialize'
 
+/**
+ * Component that handles functionallity to add projects. Renders a modal
+ */
 export class AddProject extends Component {
 	state = {
 		name: ''

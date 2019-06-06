@@ -2,7 +2,6 @@ const express = require('express')
 const mongoose = require('./config/mongoose.js')
 const helmet = require('helmet')
 const path = require('path')
-
 require('dotenv').config()
 
 const app = express()
@@ -13,7 +12,7 @@ mongoose.run()
 // Bodyparser middleware
 app.use(express.json())
 
-// Put the helmet on
+// Content Security Policy, middleware
 app.use(helmet())
 
 app.use(helmet.contentSecurityPolicy({

@@ -4,6 +4,9 @@ import { addTodo } from '../../actions/todoActions'
 import PropTypes from 'prop-types'
 import { isActive } from '../../actions/projectActions';
 
+/**
+ * Component that handles functionallity to add todos. Renders a form to add todoitem
+ */
 export class AddTodo extends Component {
 	state = {
     title: ''

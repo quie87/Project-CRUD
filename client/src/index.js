@@ -4,6 +4,8 @@ import App from './App'
 
 import { Provider } from 'react-redux'
 import store from './store'
+
+// Default serviceworker from React, not in use at this time
 // import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(

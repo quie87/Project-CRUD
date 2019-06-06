@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
+/**
+ * Childcomponent to Projects
+ */
 class ProjectItem extends Component {
   render () {
     const { _id, name } = this.props.project

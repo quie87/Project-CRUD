@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { Row, Col, CardPanel } from 'react-materialize'
 import PropTypes from 'prop-types'
 
+/**
+ * Component that renders error messages to the user.
+ */
 class Notification extends Component {
   render () {
     const { error } = this.props

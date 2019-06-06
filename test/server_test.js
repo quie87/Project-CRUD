@@ -7,6 +7,7 @@ const backend = request.agent('http://localhost:5000')
 const expect = chai.expect
 const should = chai.should()
 
+// Setting some local variables
 let token = null
 let parentName = null
 let userId = null

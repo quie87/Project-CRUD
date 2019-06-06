@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { login } from '../../actions/authActions'
-import Notification from '../func_comp/Notifications'
+import Notification from '../notifications/Notifications'
 
+/**
+ * Component that renders a login form. Also check if user is already authenticated
+ */
 class SignIn extends Component {
 	state = {
 		email: '',

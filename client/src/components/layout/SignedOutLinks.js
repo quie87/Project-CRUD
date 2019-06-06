@@ -1,6 +1,9 @@
 import React from 'react'
 import { NavItem } from 'react-materialize'
 
+/**
+ * Renders specified links to user that is not Logged in
+ */
 const SignedOutLinks = () => {
   return (
     <ul className='left'>

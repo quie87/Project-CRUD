@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import ProjectItem from './ProjectItem'
 import PropTypes from 'prop-types'
 
+/**
+ * Parent component to projekt items. Renders all projects given from redux store
+ */
 class Projects extends Component {
   render () {
     let projectArr = this.props.projects.map(project => (

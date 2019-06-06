@@ -7,6 +7,9 @@ import { Navbar } from 'react-materialize'
 import M from 'materialize-css'
 import 'materialize-css/dist/css/materialize.min.css'
 
+/**
+ * Header component. Displays different links depending on if a user is loggen in or not.
+ */
 class Header extends Component {
   render () {
     const { isAuthenticated } = this.props.auth
