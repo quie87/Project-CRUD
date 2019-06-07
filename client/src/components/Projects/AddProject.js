@@ -31,7 +31,7 @@ export class AddProject extends Component {
     return (
       <div>
         <div>
-          <button href="#modal" className="modal-trigger standard-btn">
+          <button href="#modal" className="modal-trigger standard-btn no-waves">
             Add New Project   
           </button>
           	<Modal id="modal">
