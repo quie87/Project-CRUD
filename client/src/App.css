@@ -253,14 +253,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
   padding: 0.5em;
 }
 
+.notifications-warning {
+	background-color:#cc3300 !important;
+}
+
 /* Media for implementation on smaller screens
 ---------------------------------------------------------------------------*/ 
 @media only screen and (max-width: 993px) {
-
-  /* .landing-img {
-    display: none;
-  } */
-
   .box-left h1 {
 	  line-height: 100%;
   }
@@ -273,7 +272,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 @media only screen and (max-width: 510px) {
-	.container {
+	.innerWrapper {
 	  width: 100%;
 	}
 
@@ -288,14 +287,5 @@ textarea.materialize-textarea:focus:not([readonly]) {
 	.main h1 {
 		font-size: 2.8rem;
 	}
-  } 
-
-  .notifications-warning {
-	  background-color:#cc3300 !important;
-  }
-
-  .flex-container button:active {
-	  background-color: green;
-  }
-  
+} 
 
