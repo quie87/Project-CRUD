@@ -27,12 +27,13 @@ body {
 /* Navbar
 ---------------------------------------*/
 .Navbar {
-  width: 100%;
-  height: 5em;
+	width: 100%;
+	height: 4em;
   margin-bottom: 40px;
   padding-left: 50px;
-  padding-right: 50px;
+	padding-right: 50px;
 }
+
 
 /* Layout for logged in user
 -----------------------------------------*/
@@ -50,6 +51,10 @@ body {
 -----------------------------------------*/
 p {
   text-align: left;
+}
+
+h1, h2, h3, h4, h5 {
+	margin: 0.67em;
 }
 
 
@@ -259,21 +264,20 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 /* Media for implementation on smaller screens
 ---------------------------------------------------------------------------*/ 
+
 @media only screen and (max-width: 993px) {
   .box-left h1 {
 	  line-height: 100%;
   }
 }
 
-@media only screen and (max-width: 585px) {
+@media only screen and (max-width: 600px) {	
 	.projects {
 		height: auto;
 	}
-}
 
-@media only screen and (max-width: 510px) {
 	.innerWrapper {
-	  width: 100%;
+		width: 100%;
 	}
 
 	nav .brand-logo {
@@ -283,9 +287,15 @@ textarea.materialize-textarea:focus:not([readonly]) {
 		position: absolute;
 		white-space: nowrap;
 	}
+}
 
+@media only screen and (max-width: 510px) {
 	.main h1 {
 		font-size: 2.8rem;
+	}
+
+	.Navbar {
+		margin-bottom: 5px;
 	}
 } 
 
