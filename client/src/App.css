@@ -116,13 +116,6 @@ button:link {
   background-color: #eee;
 }
 
-button:focus {
-	background-color: rgb(255,112,67) !important;
-}
-button:active {
-	background-color: rgb(255,112,67) !important;	
-}
-
 /* Style for checkbox todo done or not 
 ----------------------------------------------------------*/
 /* Hide the browser's default checkbox */
