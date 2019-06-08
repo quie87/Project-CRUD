@@ -23,22 +23,22 @@ Du behöver i detta fall lägga till en egen .env fil i root med egna nycklar f�
 
 
 ### Install server dependencies
-npm install
+`npm install`
 
 ### Install client dependencies
 cd client <br>
-npm install
+`npm install`
 
 ### Kör både Express & React från root
-npm run dev <br>
+`npm run dev` <br>
 
 Backend öppnar på [http://localhost:5000] och klienten öppnar på [http://localhost:3000]
 
 ### Build for production
 cd client <br>
-npm run build
+`npm run build`
 
-### `npm run test`
-Kör de automatiska test suits som finns.
+### Kör de automatiska test suits som finns
+`npm run test`
 
 Mer information hittar du på repots Wiki. Det finns också en README.md för klienten i "client" foldern på engelska.
