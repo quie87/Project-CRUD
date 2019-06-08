@@ -1,28 +1,40 @@
 ## Get Stuff Done
+Detta är en fullstack CRUD applikation, utvecklad som en PWA, där utvecklingsprocessen har utgått från UP, SCRUM och MERN stacken.
 
-## Visit the webapplication here
+## Besök webbapplikationen här
 getstuffdone.se
 
 ## Download
-It is okej to Clone/download this application for private use. 
+Det är tillåtet att clona/ladda ner denna applikationen för privat bruk. <br>
 
-## Most frequently used Scripts
-Inside the project directory, in the console, you can run:
+## Mest använda scripts
+Inne i projekt foldern, i consolen, kan du köra följande script
+
+### Install server dependencies
+npm install
+
+### Install client dependencies
+cd client
+npm install
+
+### Kör både Express & React från root
+npm run dev <br>
+
+Backend öppnar på [http://localhost:5000] och klienten öppnar på [http://localhost:3000]
+
+### Build for production
+cd client
+npm run build
 
 ### `npm server`
-Runs the app in development mode.<br>
-Also runns nodemon server for hot-reload.<br>
-Opens at [http://localhost:5000]
-
-
-### `npm run dev`
-Runs both the server and client at the same time.<br>
-Opens at [http://localhost:5000] (for API) and [http://localhost:3000] (for client)
+Kör applikationen i utvecklings miljö. <br>
+Kör även Nodemon server för "hot-reload". <br>
+Öppnar på port [http://localhost:5000]
 
 ### `npm run test`
-Runs the automated integration tests.
+Kör de automatiska test suits som finns.
 
 ### `npm push heroku master`
-Pushes the changes to heroku that makes a new build and publish changes to the live server.
+Pushar ändringar till Heroku som kör en ny build och publicerar ändringarna på live servern.
 
-More information is to be found in the projects Wiki. Also there is a README.md for the client in the client folder
+Mer information hittar du på repots Wiki. Det finns också en README.md för klienten i "client" foldern på engelska.
