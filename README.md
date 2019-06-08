@@ -14,7 +14,7 @@ Inne i projekt foldern, i consolen, kan du köra följande script
 npm install
 
 ### Install client dependencies
-cd client
+cd client <br>
 npm install
 
 ### Kör både Express & React från root
@@ -23,13 +23,8 @@ npm run dev <br>
 Backend öppnar på [http://localhost:5000] och klienten öppnar på [http://localhost:3000]
 
 ### Build for production
-cd client
+cd client <br>
 npm run build
-
-### `npm server`
-Kör applikationen i utvecklings miljö. <br>
-Kör även Nodemon server för "hot-reload". <br>
-Öppnar på port [http://localhost:5000]
 
 ### `npm run test`
 Kör de automatiska test suits som finns.
