@@ -1,3 +1,5 @@
+// Inspired by Brad Traversy at Traversymedia
+
 import { GET_ERRORS, CLEAR_ERRORS } from '../actions/types'
 
 const initialState = {

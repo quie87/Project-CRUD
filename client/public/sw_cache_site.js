@@ -7,7 +7,6 @@ self.addEventListener('install', (e) => {
 
 // Call activate event
 self.addEventListener('activate', (e) => {
-  console.log('Service Worker: Activated')
   // Remove unwanted caches
   e.waitUntil(
     caches.keys().then(cacheNames => {
@@ -25,8 +24,6 @@ self.addEventListener('activate', (e) => {
 
 // Call fetch event
 self.addEventListener('fetch', e => {
-  console.log('service worker: fetching...')
-
   if (e.request.method !== 'GET') return
 
   e.respondWith(

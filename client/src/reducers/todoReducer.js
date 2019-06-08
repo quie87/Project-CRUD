@@ -28,11 +28,6 @@ export default function (state = initialState, action) {
         ...state,
         todos: state.todos.filter(todo => todo._id !== action.payload)
       }
-    // case DELETE_TODOS:
-    //   return {
-    //     ...state,
-    //     todos: state.todos.filter(todo => todo.parentName !== action.payload)
-    //   }
     case TOGGLE_TODO:
       return {
         ...state,

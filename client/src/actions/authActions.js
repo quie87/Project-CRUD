@@ -1,3 +1,5 @@
+// Inspired by Brad Traversy at Traversymedia
+
 import axios from 'axios'
 import { returnErrors } from './errorActions'
 

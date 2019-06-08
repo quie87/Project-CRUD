@@ -1,3 +1,4 @@
+// Inspired by Brad Traversy at Traversymedia
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 

@@ -42,19 +42,6 @@ export const deleteTodo = id => (dispatch, getState) => {
     )
 }
 
-// export const deleteTodos = (name) => (dispatch, getState) => {
-//   axios
-//     .delete(`api/todos/all/${name}`, tokenConfig(getState))
-//     .then(res =>
-//       dispatch({
-//         type: DELETE_TODOS,
-//         payload: name
-//       }))
-//     .catch(err =>
-//       dispatch(returnErrors(err.response.data, err.response.status))
-//     )
-// }
-
 export const toggleTodo = id => (dispatch) => {
   axios
     .post(`api/todos/update/${id}`)

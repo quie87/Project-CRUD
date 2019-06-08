@@ -1,3 +1,4 @@
+// Inspired by Brad Traversy at Traversymedia
 import { GET_ERRORS, CLEAR_ERRORS } from './types'
 
 // Return errors

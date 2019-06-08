@@ -1,3 +1,5 @@
+// Inspired by Brad Traversy at Traversymedia
+
 import {
   USER_LOADED,
   USER_LOADING,
