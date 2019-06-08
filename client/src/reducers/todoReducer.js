@@ -1,15 +1,22 @@
-import { GET_TODOS, ADD_TODO, DELETE_TODO, TOGGLE_TODO, DELETE_TODOS } from '../actions/types'
+import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, DELETE_TODOS, TODOS_LOADING, TODOS_LOADED } from '../actions/types'
 
 const initialState = {
-  todos: []
+  todos: [],
+  todosIsLoading: false
 }
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_TODOS:
+    case TODOS_LOADED:
       return {
         ...state,
-        todos: action.payload
+        todos: action.payload,
+        todosIsLoading: false
+      }
+    case TODOS_LOADING:
+      return {
+        ...state,
+        todosIsLoading: true
       }
     case ADD_TODO:
       return {

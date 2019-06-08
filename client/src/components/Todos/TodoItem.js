@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 /**
  * Childcomponent to Todos. Decides how to present a singel todoitem
  */
-export class TodoItem extends Component {
+class TodoItem extends Component {
   render () {
     const { _id, title, completed } = this.props.todo
 
@@ -34,4 +35,4 @@ TodoItem.propTypes = {
   onDeleteTodo: PropTypes.func.isRequired
 }
 
-export default TodoItem
+export default connect(null, null)(TodoItem)

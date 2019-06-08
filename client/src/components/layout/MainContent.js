@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getProjects, deleteProject, isActive } from '../../actions/projectActions'
 import { getTodos, deleteTodo, toggleTodo, deleteTodos } from '../../actions/todoActions'
-import { loadUser } from '../../actions/authActions'
 import PropTypes from 'prop-types'
 
 import Projects from '../Projects/Projects'
@@ -11,7 +10,8 @@ import Todos from '../Todos/Todos'
 import AddTodo from '../Todos/AddTodo'
 
 /**
- * Contains the Main content for a logged in user. Shows the users projects/todos and logic needed. 
+ * Contains the Main content for a logged in user. Shows the users projects/todos
+ * Also contains methods needed to interact with them.
  */
 class MainContent extends Component {
   state = {
@@ -33,9 +33,11 @@ class MainContent extends Component {
   }
 
   getProjectTodos = (parentName) => {
-    this.setState({ showTodos: true})
-    this.props.isActive(parentName)
-    this.props.getTodos(parentName)
+		const { user } = this.props.auth
+
+		this.setState({ showTodos: true})
+		this.props.isActive(parentName)
+    this.props.getTodos(user._id)
   }
 
   toggleComplete = (id) => {
@@ -94,7 +96,6 @@ MainContent.propTypes = {
   getTodos: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,
-  loadUser: PropTypes.func.isRequired,
   deleteTodos: PropTypes.func.isRequired,
 	isActive: PropTypes.func.isRequired
 }
@@ -106,5 +107,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, { 
-  getProjects, deleteProject, getTodos, deleteTodo, isActive, toggleTodo, loadUser, deleteTodos
+  getProjects, deleteProject, getTodos, deleteTodo, isActive, toggleTodo, deleteTodos
 })(MainContent)

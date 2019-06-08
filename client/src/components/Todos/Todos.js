@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import TodoItem from './TodoItem'
 import PropTypes from 'prop-types'
 
@@ -7,9 +8,12 @@ import PropTypes from 'prop-types'
  */
 class Todos extends Component {
   render () {
-    let todosArr = this.props.todos.map(todo => (
-      <TodoItem key={todo._id} todo={todo} toggleComplete={this.props.toggleComplete} onDeleteTodo={this.props.onDeleteTodo} />
-    )).sort(function (a, b) { return Date.a - Date.b })
+    const { projectName } = this.props.isActive
+
+    let todosArr = this.props.todos.map(todo => todo.parentName === projectName
+      ? (
+        <TodoItem key={todo._id} todo={todo} toggleComplete={this.props.toggleComplete} onDeleteTodo={this.props.onDeleteTodo} />
+      ) : null)
 
     return (
       todosArr
@@ -24,4 +28,8 @@ Todos.propTypes = {
   onDeleteTodo: PropTypes.func.isRequired
 }
 
-export default Todos
+const mapStateToProps = (state) => ({
+  isActive: state.project.isActive
+})
+
+export default connect(mapStateToProps, null)(Todos)

@@ -5,10 +5,13 @@ const auth = require('../../middleware/auth')
 const Todo = require('../../models/Todo')
 
 // GET
-// @description Get All Todos beloning to given project
+// @description Get All Todos beloning to given user
 // Private
-router.get('/:parentName', auth, (req, res) => {
-  Todo.find({ parentName: req.params.parentName })
+router.get('/:id', auth, (req, res) => {
+  const id = req.params.id
+  const query = { 'userId': id }
+
+  Todo.find(query)
     .then(todos => res.json(todos))
     .catch(() => res.status(404).json({ msg: 'Could not find todoItem' }))
 })

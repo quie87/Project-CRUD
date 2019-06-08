@@ -1,12 +1,14 @@
-import { GET_TODOS, ADD_TODO, DELETE_TODO, DELETE_TODOS } from './types'
+import { ADD_TODO, DELETE_TODO, DELETE_TODOS, TODOS_LOADING, TODOS_LOADED } from './types'
 import { tokenConfig } from './authActions'
 import { returnErrors } from './errorActions'
 import axios from 'axios'
 
-export const getTodos = parentName => (dispatch, getState) => {
-  axios.get(`api/todos/${parentName}`, tokenConfig(getState))
+export const getTodos = id => (dispatch, getState) => {
+  dispatch({ type: TODOS_LOADING })
+
+  axios.get(`api/todos/${id}`, tokenConfig(getState))
     .then(res => dispatch({
-      type: GET_TODOS,
+      type: TODOS_LOADED,
       payload: res.data
     }))
     .catch(err =>
