@@ -1,15 +1,26 @@
-## Get Stuff Done
+# Get Stuff Done
 Detta är en fullstack CRUD applikation, utvecklad som en PWA, där utvecklingsprocessen har utgått från UP, SCRUM och MERN stacken.
 
-## Besök webbapplikationen här
+### Besök webbapplikationen här
 getstuffdone.se
+
+## Hur applikationen fungerar
+* Fungerar på datorer, surfplattor samt mobiltelefoner
+* Registera dig som användare
+* Lägg till/ta bort Projekt
+* Lägg till/ta bor Tasks
+* Checka av Tasks som har slutförts
+* Navigera mellan dina Projekt även om du är offline
+* Snabbare laddningstider då resurser sparas i cashe
+* Spara icon på din telefon för att snabbare komma in, utan att behöva skriva in URL i webläsaren
+* Fungerar bäst när du använder dig av Google Chrome som webbläsare
 
 ## Download
 Det är tillåtet att clona/ladda ner denna applikationen för privat bruk. <br>
 Du behöver i detta fall lägga till en egen .env fil i root med egna nycklar för MongoDB och JWT secret
 
-## Mest använda scripts
-Inne i projekt foldern, i consolen, kan du köra följande script
+# Mest använda scripts
+
 
 ### Install server dependencies
 npm install
