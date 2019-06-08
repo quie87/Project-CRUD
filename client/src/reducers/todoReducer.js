@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, DELETE_TODOS, TODOS_LOADING, TODOS_LOADED } from '../actions/types'
+import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, TODOS_LOADING, TODOS_LOADED } from '../actions/types'
 
 const initialState = {
   todos: [],
@@ -28,11 +28,11 @@ export default function (state = initialState, action) {
         ...state,
         todos: state.todos.filter(todo => todo._id !== action.payload)
       }
-    case DELETE_TODOS:
-      return {
-        ...state,
-        todos: state.todos.filter(todo => todo.parentName !== action.payload)
-      }
+    // case DELETE_TODOS:
+    //   return {
+    //     ...state,
+    //     todos: state.todos.filter(todo => todo.parentName !== action.payload)
+    //   }
     case TOGGLE_TODO:
       return {
         ...state,

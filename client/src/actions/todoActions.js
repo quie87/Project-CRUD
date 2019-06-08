@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, DELETE_TODOS, TODOS_LOADING, TODOS_LOADED } from './types'
+import { ADD_TODO, DELETE_TODO, TODOS_LOADING, TODOS_LOADED } from './types'
 import { tokenConfig } from './authActions'
 import { returnErrors } from './errorActions'
 import axios from 'axios'
@@ -42,18 +42,18 @@ export const deleteTodo = id => (dispatch, getState) => {
     )
 }
 
-export const deleteTodos = name => (dispatch, getState) => {
-  axios
-    .delete(`api/todos/all/${name}`, tokenConfig(getState))
-    .then(res =>
-      dispatch({
-        type: DELETE_TODOS,
-        payload: name
-      }))
-    .catch(err =>
-      dispatch(returnErrors(err.response.data, err.response.status))
-    )
-}
+// export const deleteTodos = (name) => (dispatch, getState) => {
+//   axios
+//     .delete(`api/todos/all/${name}`, tokenConfig(getState))
+//     .then(res =>
+//       dispatch({
+//         type: DELETE_TODOS,
+//         payload: name
+//       }))
+//     .catch(err =>
+//       dispatch(returnErrors(err.response.data, err.response.status))
+//     )
+// }
 
 export const toggleTodo = id => (dispatch) => {
   axios

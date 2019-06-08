@@ -47,14 +47,14 @@ router.post('/update/:id', (req, res) => {
 // Delete
 // @description Delete all todos that belongs to given project
 // @Private
-router.delete('/all/:name', auth, (req, res) => {
-  const items = req.params.name
-  const query = { 'parentName': items }
+// router.delete('/all/:name', auth, (req, res) => {
+//   const name = req.params.name
+//   const query = { 'parentName': name }
 
-  Todo.deleteMany(query)
-    .then(() => res.json({ success: true }))
-    .catch(() => res.status(400).json({ success: false }))
-})
+//   Todo.deleteMany(query)
+//     .then(() => res.json({ success: true }))
+//     .catch(() => res.status(400).json({ success: false }))
+// })
 
 // Delete
 // @description Delete an Todo
