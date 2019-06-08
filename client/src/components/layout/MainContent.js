@@ -20,7 +20,8 @@ class MainContent extends Component {
 
   componentDidMount () {
     const { user } = this.props.auth
-    this.props.getProjects(user._id)
+		this.props.getProjects(user._id)
+		this.props.getTodos(user._id)
 	}
 
   onDeleteProject = (id, parentName) => {
@@ -36,12 +37,9 @@ class MainContent extends Component {
     this.props.deleteTodo(id)
   }
 
-  getProjectTodos = (parentName) => {
-		const { user } = this.props.auth
-
+  showProjectTodos = (parentName) => {
 		this.setState({ showTodos: true})
 		this.props.isActive(parentName)
-    this.props.getTodos(user._id)
   }
 
   toggleComplete = (id) => {
@@ -62,7 +60,7 @@ class MainContent extends Component {
               <AddProject />
               <ul className='projectlist'>
                 <Projects projects={projects} isActive={isActive} onDeleteProject={this.onDeleteProject}
-                  getProjectTodos={this.getProjectTodos} />
+                  showProjectTodos={this.showProjectTodos} />
               </ul>
             </div>  
           </div>

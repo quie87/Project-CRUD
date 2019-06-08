@@ -22,11 +22,11 @@ class ProjectItem extends Component {
       <div>
         { ifIsActive
           ? <li className='flex-container'>
-            <button className='project-btn flex-1' style={style} onClick={this.props.getProjectTodos.bind(this, name)}> { name } </button>
+            <button className='project-btn flex-1' style={style} onClick={this.props.showProjectTodos.bind(this, name)}> { name } </button>
             <button className='remove-btn flex-2' onClick={this.props.onDeleteProject.bind(this, _id, name)} ><i className='fa fa-trash' /></button>
           </li>
           : <li className='flex-container'>
-            <button className='project-btn flex-1' onClick={this.props.getProjectTodos.bind(this, name)}> { name } </button>
+            <button className='project-btn flex-1' onClick={this.props.showProjectTodos.bind(this, name)}> { name } </button>
             <button className='remove-btn flex-2' onClick={this.props.onDeleteProject.bind(this, _id, name)} ><i className='fa fa-trash' /></button>
           </li>
         }
@@ -43,7 +43,7 @@ const style = {
 ProjectItem.propTypes = {
   project: PropTypes.object.isRequired,
   onDeleteProject: PropTypes.func.isRequired,
-  getProjectTodos: PropTypes.func.isRequired,
+  showProjectTodos: PropTypes.func.isRequired,
   isActive: PropTypes.object
 }
 

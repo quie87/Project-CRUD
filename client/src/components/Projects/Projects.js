@@ -9,7 +9,7 @@ class Projects extends Component {
   render () {
     let projectArr = this.props.projects.map(project => (
       <ProjectItem key={project._id} project={project} isActive={this.props.isActive} onDeleteProject={this.props.onDeleteProject}
-        getProjectTodos={this.props.getProjectTodos} />
+        showProjectTodos={this.props.showProjectTodos} />
     )).sort(function (a, b) { return Date.a - Date.b })
 
     return (
@@ -22,7 +22,7 @@ class Projects extends Component {
 Projects.propTypes = {
   projects: PropTypes.array.isRequired,
   onDeleteProject: PropTypes.func.isRequired,
-  getProjectTodos: PropTypes.func.isRequired
+  showProjectTodos: PropTypes.func.isRequired
 }
 
 export default Projects
