@@ -26,7 +26,7 @@ Du behöver i detta fall lägga till en egen .env fil i root med egna nycklar f�
 `npm install`
 
 ### Install client dependencies
-cd client <br>
+`cd client` <br>
 `npm install`
 
 ### Kör både Express & React från root
@@ -35,7 +35,7 @@ cd client <br>
 Backend öppnar på [http://localhost:5000] och klienten öppnar på [http://localhost:3000]
 
 ### Build for production
-cd client <br>
+`cd client` <br>
 `npm run build`
 
 ### Kör de automatiska test suits som finns
