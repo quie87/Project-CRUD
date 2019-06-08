@@ -6,6 +6,7 @@ getstuffdone.se
 
 ## Download
 Det är tillåtet att clona/ladda ner denna applikationen för privat bruk. <br>
+Du behöver i detta fall lägga till en egen .env fil i root med egna nycklar för MongoDB och JWT secret
 
 ## Mest använda scripts
 Inne i projekt foldern, i consolen, kan du köra följande script
@@ -28,8 +29,5 @@ npm run build
 
 ### `npm run test`
 Kör de automatiska test suits som finns.
-
-### `npm push heroku master`
-Pushar ändringar till Heroku som kör en ny build och publicerar ändringarna på live servern.
 
 Mer information hittar du på repots Wiki. Det finns också en README.md för klienten i "client" foldern på engelska.
