@@ -53,4 +53,13 @@ router.delete('/:id', auth, (req, res) => {
     .catch(() => res.status(404).json({ msg: 'Could not delete todoItem from Data base' }))
 })
 
+//Edit
+// @description Edit Todo
+// @Private
+// under work
+
+// router.edit('/:id'), auth, (req, res) => {
+
+// }
+
 module.exports = router
